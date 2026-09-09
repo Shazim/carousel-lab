@@ -1,0 +1,168 @@
+{
+  "slug": "founder-agents",
+  "title": "5 AI Agents Every Founder Needs",
+  "topic": "Five Claude agents (Projects + connectors) that run a founder's week — Level 5 of the levels post, in practice",
+  "handle": "@shazimbuilds",
+  "keyword": "AGENTS",
+  "guideUrl": null,
+  "status": "draft",
+  "posted": null,
+  "results": { "reach": null, "saves": null, "shares": null, "comments": null, "follows": null },
+  "notes": "Own version of the agent-recipes reference format. All workflows are honest 'draft, never send' patterns. Template: agent-recipes (Family A light).",
+  "template": "agent-recipes",
+  "cover": {
+    "line1": "5 AI agents",
+    "line2": "every founder needs"
+  },
+  "slides": [
+    {
+      "type": "idea", "slug": "the-idea", "kicker": "The idea",
+      "title": "An agent = Claude + one job + your tools",
+      "body": "Give Claude a role, a few rules, and access to the tools you already use. Save it once as a Project — it shows up every day after that.",
+      "tools": [
+        { "icon": "gmail", "label": "Gmail" },
+        { "icon": "whatsapp", "label": "WhatsApp" },
+        { "icon": "googlecalendar", "label": "Calendar" },
+        { "icon": "googlesheets", "label": "Sheets" },
+        { "icon": "notion", "label": "Notion" },
+        { "icon": "googledrive", "label": "Drive" },
+        { "icon": "github", "label": "GitHub" },
+        { "icon": "stripe", "label": "Stripe" }
+      ],
+      "formula": ["Role", "Goal", "Rules", "Tools", "Output"]
+    },
+    {
+      "type": "agent", "slug": "lead-concierge", "kicker": "Agent 1",
+      "title": "Lead Concierge",
+      "body": "Watches inbound — email and WhatsApp — drafts replies in your voice, and offers call slots before the lead goes cold.",
+      "connects": [
+        { "icon": "gmail", "label": "Gmail" },
+        { "icon": "whatsapp", "label": "WhatsApp" },
+        { "icon": "googlecalendar", "label": "Calendar" }
+      ],
+      "agent": {
+        "name": "concierge", "status": "live",
+        "rows": [
+          { "s": "WHEN", "icon": "gmail", "t": "a new lead lands in email or WhatsApp" },
+          { "s": "DO", "icon": "googledocs", "t": "draft a reply in my tone" },
+          { "s": "DO", "icon": "googlecalendar", "t": "offer two call slots" },
+          { "s": "SEND", "icon": "whatsapp", "t": "8am digest: who needs me today" }
+        ]
+      },
+      "try": "Draft replies to every unanswered lead and offer two slots each."
+    },
+    {
+      "type": "agent", "slug": "competitor-radar", "kicker": "Agent 2",
+      "title": "Competitor Radar",
+      "body": "Checks your competitors every Monday — pricing, changelogs, launches — and writes what changed and what to do about it.",
+      "connects": [
+        { "icon": "googlechrome", "label": "Web" },
+        { "icon": "googledocs", "label": "Docs" },
+        { "icon": "notion", "label": "Notion" }
+      ],
+      "agent": {
+        "name": "radar", "status": "scheduled",
+        "rows": [
+          { "s": "WHEN", "icon": "googlecalendar", "t": "every Monday, 7:00" },
+          { "s": "DO", "icon": "googlechrome", "t": "scan competitor sites + changelogs" },
+          { "s": "DO", "icon": "googledocs", "t": "write what changed and why it matters" },
+          { "s": "SEND", "icon": "notion", "t": "brief in Notion before your standup" }
+        ]
+      },
+      "try": "Track [3 competitors]: pricing, features, launches. Monday brief."
+    },
+    {
+      "type": "agent", "slug": "content-engine", "kicker": "Agent 3",
+      "title": "Content Engine",
+      "body": "Turns one build log into a content pack — carousel outline, thread and hooks — from your real work, in your voice.",
+      "connects": [
+        { "icon": "notion", "label": "Notion" },
+        { "icon": "instagram", "label": "Instagram" },
+        { "icon": "x", "label": "X" }
+      ],
+      "agent": {
+        "name": "engine", "status": "ready",
+        "rows": [
+          { "s": "WHEN", "icon": "notion", "t": "I finish a build log" },
+          { "s": "DO", "icon": "instagram", "t": "outline a 10-slide carousel" },
+          { "s": "DO", "icon": "x", "t": "spin a thread + 3 hooks" },
+          { "s": "SEND", "icon": "googledrive", "t": "pack saved, ready to render" }
+        ]
+      },
+      "try": "Turn this build log into a carousel outline, a thread and 3 hooks."
+    },
+    {
+      "type": "agent", "slug": "numbers-analyst", "kicker": "Agent 4",
+      "title": "Numbers Analyst",
+      "body": "Reads the week's numbers, charts the trend, flags anything weird — and explains it in plain English, not spreadsheet English.",
+      "connects": [
+        { "icon": "googlesheets", "label": "Sheets" },
+        { "icon": "stripe", "label": "Stripe" },
+        { "icon": "whatsapp", "label": "WhatsApp" }
+      ],
+      "agent": {
+        "name": "analyst", "status": "scheduled",
+        "rows": [
+          { "s": "WHEN", "icon": "googlesheets", "t": "Friday 5pm, or the sheet updates" },
+          { "s": "DO", "icon": "stripe", "t": "pull the week: revenue, churn, refunds" },
+          { "s": "DO", "icon": "googlesheets", "t": "chart the trend, flag outliers" },
+          { "s": "SEND", "icon": "whatsapp", "t": "3 takeaways, zero jargon" }
+        ]
+      },
+      "try": "Summarise this week's numbers in 3 lines. Flag anything weird."
+    },
+    {
+      "type": "agent", "slug": "meeting-closer", "kicker": "Agent 5",
+      "title": "Meeting Closer",
+      "body": "Turns raw call notes into tasks with owners and deadlines — and a recap that goes out in minutes, not days.",
+      "connects": [
+        { "icon": "googlecalendar", "label": "Calendar" },
+        { "icon": "notion", "label": "Notion" },
+        { "icon": "gmail", "label": "Gmail" }
+      ],
+      "agent": {
+        "name": "closer", "status": "done",
+        "rows": [
+          { "s": "WHEN", "icon": "googledocs", "t": "I paste the call notes" },
+          { "s": "DO", "icon": "notion", "t": "extract tasks, owners, deadlines" },
+          { "s": "DO", "icon": "notion", "t": "create them in Notion" },
+          { "s": "SEND", "icon": "gmail", "t": "recap email drafted in 10 minutes" }
+        ]
+      },
+      "try": "From these notes: tasks with owners, plus a recap email draft."
+    },
+    {
+      "type": "recipe", "slug": "the-recipe", "kicker": "The 60-second recipe",
+      "title": "One template builds all five",
+      "body": "Paste this into a new Claude Project and fill the blanks:",
+      "lines": [
+        { "k": "Role", "v": "you are my ____." },
+        { "k": "Goal", "v": "every ____, do ____." },
+        { "k": "Tools", "v": "Gmail / Sheets / Notion / ____." },
+        { "k": "Rules", "v": "always draft, never send." },
+        { "k": "Output", "v": "____, delivered to ____." }
+      ],
+      "note": "<b>The Rules line is the whole game.</b> Agents draft, you send — that one rule keeps five agents safe to run."
+    },
+    {
+      "type": "unlock", "slug": "the-unlock", "kicker": "The unlock",
+      "title": "Connect once, runs forever",
+      "body": "Link your tools once in Settings → Connectors, save each agent as a Project. From then on it's one message — or a schedule.",
+      "connectors": [
+        { "icon": "gmail", "label": "Gmail" },
+        { "icon": "whatsapp", "label": "WhatsApp" },
+        { "icon": "googlecalendar", "label": "Google Calendar" },
+        { "icon": "googlesheets", "label": "Google Sheets" },
+        { "icon": "notion", "label": "Notion" },
+        { "icon": "googledrive", "label": "Google Drive" }
+      ]
+    }
+  ],
+  "cta": {
+    "line1": "Your turn.",
+    "line2": "5 agents. One weekend.",
+    "icons": ["gmail", "whatsapp", "googlecalendar", "googlesheets", "notion", "stripe"],
+    "body": "Comment AGENTS and I'll DM you the pack — all five full prompts, the rules, and the exact setup.",
+    "pill": "Comment AGENTS"
+  }
+}

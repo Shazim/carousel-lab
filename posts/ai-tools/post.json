@@ -1,0 +1,115 @@
+{
+  "slug": "ai-tools",
+  "title": "I Wish Someone Had Told Me This Sooner",
+  "topic": "The AI tool stack: prompting models, workflow automation, agent builders",
+  "handle": "@shazimbuilds",
+  "keyword": null,
+  "guideUrl": null,
+  "status": "test-dummy",
+  "posted": null,
+  "results": {
+    "reach": null,
+    "saves": null,
+    "shares": null,
+    "comments": null,
+    "follows": null
+  },
+  "notes": "Cover photo: shazim/one.png. CTA is follow-based (no lead magnet yet).",
+  "template": "icon-grid",
+  "cover": {
+    "line1": "I wish someone",
+    "line2": "had told me this",
+    "highlight": "sooner",
+    "photo": "shazim/one.png",
+    "minis": [
+      "chatgpt",
+      "zapier",
+      "n8n",
+      "notionai"
+    ]
+  },
+  "slides": [
+    {
+      "theme": "dark",
+      "t1": "Prompt",
+      "t2": "Engineering",
+      "orangeT2": true,
+      "sub": "Learn how to write clear, structured prompts that help AI models deliver accurate, useful, and relevant results.",
+      "tools": [
+        "claude",
+        "gemini",
+        "grok",
+        "chatgpt"
+      ],
+      "floats": [
+        {
+          "tool": "claude",
+          "corner": "tr",
+          "size": 185,
+          "bg": "#FF5A00",
+          "fg": "#FFFFFF"
+        },
+        {
+          "tool": "claude",
+          "corner": "bl",
+          "size": 290,
+          "bg": "#FF5A00",
+          "fg": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "theme": "light",
+      "t1": "AI",
+      "t2": "Workflow",
+      "sub": "Use automation platforms like Zapier, Make, and n8n to connect apps and automate tasks without coding.",
+      "tools": [
+        "zapier",
+        "n8n",
+        "make",
+        "notionai"
+      ],
+      "floats": [
+        {
+          "tool": "zapier",
+          "corner": "ml",
+          "size": 200
+        },
+        {
+          "tool": "n8n",
+          "corner": "br",
+          "size": 300
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "t1": "AI",
+      "t2": "Agents",
+      "orangeT2": true,
+      "sub": "Build intelligent multi-agent systems with LangChain, AutoGen, and CrewAI that enable AI agents to collaborate, reason, and coordinate complex tasks efficiently.",
+      "tools": [
+        "crewai",
+        "mindstudio",
+        "autogen",
+        "botpress"
+      ],
+      "floats": [
+        {
+          "tool": "mindstudio",
+          "corner": "tr",
+          "size": 170
+        },
+        {
+          "tool": "crewai",
+          "corner": "bl",
+          "size": 250
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "line1": "Follow for more AI",
+    "line2": "Tips, Tricks & Tutorials"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "slug": "claude-prompts",
+  "title": "Bad vs Good vs Great Claude Prompts",
+  "topic": "Prompt quality escalation across 5 builder use cases",
+  "handle": "@shazimbuilds",
+  "keyword": null,
+  "guideUrl": null,
+  "status": "test-dummy",
+  "posted": null,
+  "results": {
+    "reach": null,
+    "saves": null,
+    "shares": null,
+    "comments": null,
+    "follows": null
+  },
+  "notes": "Editorial template. Could become a keyword post later: DM the full prompt pack.",
+  "template": "editorial",
+  "cover": {
+    "words": [
+      "Bad",
+      "Good",
+      "Great"
+    ],
+    "brand": "Claude Prompts"
+  },
+  "topics": [
+    {
+      "word": "Content",
+      "after": " Ideas",
+      "color": "yellow",
+      "bad": "Give me content ideas.",
+      "good": "Give me 10 Instagram post ideas about [NICHE].",
+      "great": "You are a content strategist for a creator in [NICHE]. Audience: [WHO FOLLOWS YOU] Goal: [FOLLOWERS / LEADS / SALES] Give me 10 post ideas built around problems my audience is actively trying to solve. For each one: the hook, the format (reel / carousel / story), and why it stops the scroll. Previous context: I do not want recycled viral templates. I want ideas specific enough that a competitor could not post them. Think step by step."
+    },
+    {
+      "word": "Landing",
+      "after": " Page Copy",
+      "color": "lavender",
+      "bad": "Write copy for my landing page.",
+      "good": "Write landing page copy for [PRODUCT] targeting [AUDIENCE].",
+      "great": "You are a conversion copywriter writing a landing page. Product: [PRODUCT] Audience: [WHO IT IS FOR] Main objection: [WHY PEOPLE HESITATE] Write the hero section: headline, subheadline, and CTA. Lead with the outcome, not the features. Previous context: I do not want clever wordplay. I want copy a distracted visitor understands in five seconds. Think step by step."
+    },
+    {
+      "word": "Debugging",
+      "after": " Code",
+      "color": "green",
+      "bad": "My code does not work. Fix it.",
+      "good": "Find the bug in this function: [PASTE CODE]",
+      "great": "You are a senior engineer reviewing my code. Code: [PASTE CODE] Expected behaviour: [WHAT SHOULD HAPPEN] Actual behaviour: [WHAT HAPPENS] Error message: [ERROR] Walk through it line by line, find the root cause, then suggest the smallest possible fix. Previous context: do not rewrite the whole file. Explain why the bug happens so I can catch it myself next time. Think step by step."
+    },
+    {
+      "word": "Learning",
+      "after": " Anything Fast",
+      "color": "cyan",
+      "bad": "Teach me [TOPIC].",
+      "good": "Explain [TOPIC] like I am a beginner, with examples.",
+      "great": "You are a patient tutor teaching me [TOPIC]. My level: [BEGINNER / INTERMEDIATE] My goal: [WHAT I WANT TO BUILD] Time: [HOURS PER WEEK] Build me a 30-day plan: what to learn each week, one small project per week, and what to deliberately skip for now. Previous context: I learn by building, not by reading theory. Optimise for shipping something real by day 30. Think step by step."
+    },
+    {
+      "word": "Automating",
+      "after": " Your Work",
+      "color": "pink",
+      "bad": "How can I automate my work?",
+      "good": "Which of my weekly tasks could I automate with AI?",
+      "great": "You are an automation consultant auditing my week. My role: [WHAT YOU DO] Repetitive tasks: [LIST 3-5 TASKS] Tools I already use: [TOOLS] Pick the 2 tasks with the best effort-to-payoff ratio and design the automation for each: trigger, steps, and tool (Zapier / n8n / Claude). Previous context: I am not technical. I want automations I can build this weekend, not an enterprise system. Think step by step."
+    }
+  ],
+  "cta": {
+    "kicker": "Follow For More",
+    "big": "AI & Building"
+  }
+}

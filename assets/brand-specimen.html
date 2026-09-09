@@ -1,0 +1,88 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Manrope:wght@400..800&family=Fraunces:opsz,wght@9..144,400..650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  .slide { width:1080px; height:1350px; background:#F4F2EC; padding:56px 64px;
+           font-family:'Manrope',sans-serif; color:#171512; position:relative; overflow:hidden; }
+  .head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:28px; }
+  .head h1 { font-family:'Fraunces',serif; font-weight:580; font-size:40px; letter-spacing:-1px; }
+  .head span { font-family:'Inter',sans-serif; font-size:16px; letter-spacing:2px; color:#8a857c; }
+
+  .panel { border-radius:26px; padding:38px 44px; margin-bottom:26px; }
+  .pa { background:#0C0C0C; color:#fff; }
+  .pb { background:#EFECE3; border:1.5px solid #e0dcd0; }
+  .tag { font-family:'Inter',sans-serif; font-size:15px; font-weight:600; letter-spacing:4px;
+         text-transform:uppercase; color:#8a857c; margin-bottom:18px; }
+  .pa .tag { color:#33C1D8; }
+
+  .pa .disp { font-family:'Cal Sans',sans-serif; font-size:74px; line-height:1.02;
+              letter-spacing:-1px; }
+  .pa .disp .o { color:#FF8A00; }
+  .pa .sub { font-family:'Manrope'; font-weight:500; font-size:26px; color:#cfcfcf; margin-top:16px; }
+  .pa .meta { display:flex; gap:14px; margin-top:24px; align-items:center; }
+  .chip { font-family:-apple-system,'Inter',sans-serif; font-size:19px; background:#242424;
+          color:#d8d8d8; border-radius:12px; padding:9px 18px; }
+  .chip.blue { background:#0d3a42; color:#4fd0e2; }
+  .fontname { font-family:'Inter'; font-size:17px; color:#8a857c; margin-top:22px; }
+
+  .pb .disp { font-family:'Fraunces',serif; font-weight:575; font-size:66px; line-height:1.06;
+              letter-spacing:-1.5px; }
+  .hi { background:linear-gradient(transparent 30%, #DCC5EE 30%, #DCC5EE 96%, transparent 96%); padding:0 8px; }
+  .pb .kick { font-family:'Inter'; font-size:16px; font-weight:600; letter-spacing:5px;
+              text-transform:uppercase; color:#8a857c; margin-bottom:12px; }
+  .pb .sub { font-family:'Fraunces',serif; font-weight:460; font-size:26px; color:#4a463f;
+             margin-top:14px; line-height:1.4; }
+  .pb .card { margin-top:20px; background:#2B2A28; border-radius:16px; padding:16px 22px;
+              font-family:-apple-system,'Inter',sans-serif; font-size:19px; color:#E3E0DA;
+              display:flex; justify-content:space-between; align-items:center; }
+  .pb .card .send { width:34px; height:34px; border-radius:10px; background:#C96442;
+              display:flex; align-items:center; justify-content:center; color:#fff; font-size:18px; }
+
+  .swatches { display:flex; gap:14px; }
+  .sw { flex:1; border-radius:18px; height:110px; padding:12px 14px; display:flex;
+        flex-direction:column; justify-content:flex-end; font-family:'Inter';
+        font-size:14.5px; font-weight:500; }
+  .sw small { opacity:.75; font-size:12.5px; }
+  .rules { margin-top:22px; display:grid; grid-template-columns:1fr 1fr; gap:8px 28px;
+           font-family:'Inter'; font-size:16.5px; color:#44403a; }
+  .rules div::before { content:'— '; color:#FF8A00; font-weight:700; }
+</style></head><body><div class="slide">
+
+  <div class="head"><h1>shazimbuilds type system</h1><span>V1 · SEP 2026</span></div>
+
+  <div class="panel pa">
+    <div class="tag">Family A · Build — tool grids, level series</div>
+    <div class="disp">SHIP IT <span class="o">WITH AI</span></div>
+    <div class="sub">Cal Sans display — same font as orbiqon.com. Manrope for support text.</div>
+    <div class="meta">
+      <span class="chip">SF Pro inside UI mockups</span>
+      <span class="chip blue">orbiqon-teal for company CTAs</span>
+    </div>
+    <div class="fontname">Cal Sans · Manrope · bg #0C0C0C · accent #FF8A00 · bridge #0097B2</div>
+  </div>
+
+  <div class="panel pb">
+    <div class="tag" style="color:#C96442">Family B · Editorial — prompts, frameworks, guides</div>
+    <div class="kick">The founder checkup</div>
+    <div class="disp">Serif does the <span class="hi">reading</span></div>
+    <div class="sub">Fraunces for every line of reading text — sans-serif never leaves the mockups. Italics demoted to accents.</div>
+    <div class="card"><span>Real JSON, real prompts, system font.</span><span class="send">↑</span></div>
+  </div>
+
+  <div class="swatches">
+    <div class="sw" style="background:#0C0C0C;color:#fff">ink-black<br><small>#0C0C0C</small></div>
+    <div class="sw" style="background:#EFECE3;color:#171512;border:1.5px solid #e0dcd0">paper<br><small>#EFECE3</small></div>
+    <div class="sw" style="background:#FF8A00;color:#fff">accent<br><small>#FF8A00</small></div>
+    <div class="sw" style="background:#C96442;color:#fff">clay<br><small>#C96442</small></div>
+    <div class="sw" style="background:#0097B2;color:#fff">orbiqon<br><small>#0097B2</small></div>
+    <div class="sw" style="background:#F2EC4E;color:#5a5410">marker<br><small>#F2EC4E</small></div>
+  </div>
+
+  <div class="rules">
+    <div>Max 2 families per post</div><div>Reading text ≥ 28px on canvas</div>
+    <div>Weight jumps ≥ 200</div><div>Caps get +4–6px tracking</div>
+    <div>Italic = one-word accent only</div><div>UI mockups: system font, real content</div>
+    <div>Emoji never ship in final posts</div><div>Orange owns the feed; teal points to Orbiqon</div>
+  </div>
+
+</div></body></html>

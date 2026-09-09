@@ -1,0 +1,240 @@
+{
+  "slug": "founder-vitamins",
+  "title": "Your Startup Is Vitamin Deficient",
+  "topic": "The 5 systems (A-E) an AI-run founder business needs, framed as vitamins",
+  "handle": "@shazimbuilds",
+  "keyword": "VITAMIN",
+  "guideUrl": null,
+  "status": "test-dummy",
+  "posted": null,
+  "results": {
+    "reach": null,
+    "saves": null,
+    "shares": null,
+    "comments": null,
+    "follows": null
+  },
+  "notes": "Stat card numbers are illustrative mock-dashboard figures. Watercolor icons: generate with assets/images/ICON-PROMPTS.md, drop into assets/images/, re-render to auto-swap emoji.",
+  "template": "editorial-grid",
+  "cover": {
+    "kicker": "the founder checkup",
+    "line1": "Your startup is",
+    "line2": "vitamin deficient",
+    "color": "lavender",
+    "sub": "Most founders do everything manually and call it hustle. Here is the 5-supplement prescription →"
+  },
+  "slides": [
+    {
+      "headline": "Vitamin A",
+      "color": "yellow",
+      "underlineWord": "startup",
+      "items": [
+        {
+          "label": "Agents",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-agent.png",
+            "fallback": "🤖"
+          }
+        },
+        {
+          "label": "Auto follow-ups",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-envelope.png",
+            "fallback": "📨"
+          }
+        },
+        {
+          "label": "Auto-invoicing",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-invoice.png",
+            "fallback": "🧾"
+          }
+        },
+        {
+          "label": "Admin time",
+          "visual": {
+            "type": "stat",
+            "title": "Admin hrs / week",
+            "value": "−9 hrs",
+            "color": "#E07B39",
+            "chart": "bars-down"
+          }
+        }
+      ]
+    },
+    {
+      "headline": "Vitamin B",
+      "color": "green",
+      "underlineWord": "startup",
+      "items": [
+        {
+          "label": "Builds",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-wrench.png",
+            "fallback": "🔧"
+          }
+        },
+        {
+          "label": "Behind-the-scenes",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-camera.png",
+            "fallback": "🎬"
+          }
+        },
+        {
+          "label": "Befores & afters",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-compare.png",
+            "fallback": "📸"
+          }
+        },
+        {
+          "label": "Believability",
+          "visual": {
+            "type": "stat",
+            "title": "Profile Visits",
+            "value": "+120%",
+            "color": "#3E7BFA",
+            "chart": "donut",
+            "pct": 72
+          }
+        }
+      ]
+    },
+    {
+      "headline": "Vitamin C",
+      "color": "pink",
+      "underlineWord": "startup",
+      "items": [
+        {
+          "label": "Code",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-laptop.png",
+            "fallback": "💻"
+          }
+        },
+        {
+          "label": "Content",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-pen.png",
+            "fallback": "✍️"
+          }
+        },
+        {
+          "label": "Customer replies",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-chat.png",
+            "fallback": "💬"
+          }
+        },
+        {
+          "label": "Cron jobs",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-clock.png",
+            "fallback": "⏰"
+          }
+        }
+      ]
+    },
+    {
+      "headline": "Vitamin D",
+      "color": "cyan",
+      "underlineWord": "startup",
+      "items": [
+        {
+          "label": "Dashboards",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-dashboard.png",
+            "fallback": "📊"
+          }
+        },
+        {
+          "label": "Daily digest",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-note.png",
+            "fallback": "📩"
+          }
+        },
+        {
+          "label": "Drop-off alerts",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-alert.png",
+            "fallback": "🚨"
+          }
+        },
+        {
+          "label": "Deals",
+          "visual": {
+            "type": "stat",
+            "title": "Deals Closed",
+            "value": "+23%",
+            "color": "#2E9E5B",
+            "chart": "line"
+          }
+        }
+      ]
+    },
+    {
+      "headline": "Vitamin E",
+      "color": "lavender",
+      "underlineWord": "startup",
+      "items": [
+        {
+          "label": "Email list",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-mailbox.png",
+            "fallback": "📬"
+          }
+        },
+        {
+          "label": "Evergreen magnet",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-magnet.png",
+            "fallback": "🧲"
+          }
+        },
+        {
+          "label": "Every-week send",
+          "visual": {
+            "type": "img",
+            "src": "assets/images/wc-calendar.png",
+            "fallback": "🗓️"
+          }
+        },
+        {
+          "label": "Engagement",
+          "visual": {
+            "type": "stat",
+            "title": "Open Rate",
+            "value": "85%",
+            "color": "#1D9E8F",
+            "chart": "progress",
+            "pct": 85
+          }
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "kicker": "want the full prescription?",
+    "line1": "Comment",
+    "line2": "VITAMIN",
+    "color": "yellow",
+    "sub": "and I'll DM you the pack — all 5 systems, the exact tools, and the Claude prompts to build each one."
+  }
+}

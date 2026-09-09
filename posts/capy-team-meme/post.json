@@ -1,0 +1,55 @@
+{
+  "slug": "capy-team-meme",
+  "title": "Capy founder — team ships fast",
+  "topic": "Meme: recurring capybara founder character; AI stack as the team",
+  "handle": "@shazimbuilds",
+  "keyword": null,
+  "guideUrl": null,
+  "status": "draft",
+  "posted": null,
+  "results": {
+    "reach": null,
+    "saves": null,
+    "shares": null,
+    "comments": null,
+    "follows": null
+  },
+  "notes": "Base photo generated (Gemini). Caption/logos/handle composited in code — logos are real SVGs.",
+  "template": "meme",
+  "meme": {
+    "image": "assets/images/capy-founder.png",
+    "caption": [
+      "client: “wow, your",
+      "team ships fast”"
+    ],
+    "captionY": 66,
+    "captionSize": 66,
+    "team": {
+      "x": 640,
+      "y": 400,
+      "w": 400,
+      "label": "the team :",
+      "items": [
+        {
+          "icon": "claude",
+          "label": "claude"
+        },
+        {
+          "icon": "n8n",
+          "label": "n8n"
+        },
+        {
+          "icon": "googlegemini",
+          "label": "gemini"
+        },
+        {
+          "icon": "openai",
+          "label": "chatgpt"
+        }
+      ]
+    },
+    "handleX": 672,
+    "handleY": 1232,
+    "handleColor": "rgba(255,255,255,.8)"
+  }
+}

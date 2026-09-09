@@ -1,0 +1,101 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 9-Level Roadmap — @shazimbuilds</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..650&family=Manrope:wght@400..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#F7F3EA; color:#22384C; font-family:'Manrope',sans-serif;
+         font-size:17px; line-height:1.65; }
+  .page { max-width:760px; margin:0 auto; padding:64px 28px 96px; }
+  .kicker { font-size:13px; font-weight:700; letter-spacing:3.5px; text-transform:uppercase;
+            color:#8a94a0; margin-bottom:14px; }
+  h1 { font-family:'Fraunces',serif; font-weight:580; font-size:50px; line-height:1.1;
+       letter-spacing:-1px; }
+  h1 .mk { background:#F5D93F; border-radius:8px; padding:0 10px; }
+  .intro { margin:24px 0 8px; color:#3d4f61; }
+  .lvl { margin-top:52px; }
+  .lvl h2 { font-family:'Fraunces',serif; font-weight:580; font-size:30px; display:flex;
+            align-items:center; gap:12px; letter-spacing:-.5px; }
+  .pill { font-size:15px; font-weight:700; background:#111; color:#fff;
+          border-radius:999px; padding:3px 14px; font-family:'Manrope'; }
+  .move { font-weight:700; margin:10px 0 4px; }
+  .why { color:#5a6a7a; }
+  pre { background:#10151D; color:#D7DCE3; border-radius:12px; padding:16px 20px;
+        font-family:'JetBrains Mono',monospace; font-size:14px; line-height:1.6;
+        white-space:pre-wrap; margin:12px 0; }
+  .stop { margin-top:56px; background:#fff; border-radius:16px; padding:24px 28px;
+          box-shadow:0 10px 26px rgba(40,50,60,.08); }
+  .stop b { color:#D44A31; }
+  .footer { margin-top:70px; text-align:center; font-family:'Fraunces',serif;
+            font-size:20px; color:#3d4f61; }
+  .footer .handle { font-family:'Manrope'; font-size:14px; letter-spacing:2px;
+            color:#8a94a0; margin-top:8px; font-weight:700; }
+</style></head><body><div class="page">
+
+<div class="kicker">one small build per level · @shazimbuilds</div>
+<h1>The <span class="mk">9-Level</span> Roadmap</h1>
+<p class="intro">Each level below is one sitting — 20 to 60 minutes. Do them in order;
+every level makes the next one easier. Commands assume Claude Code is installed
+(<b>npm install -g @anthropic-ai/claude-code</b>).</p>
+
+<div class="lvl"><h2><span class="pill">Lvl 1</span> Terminal</h2>
+<div class="move">The build: fix one real bug by describing it.</div>
+<pre>cd your-project && claude
+> the login form lets empty emails through — find it and fix it</pre>
+<p class="why">Watch it read files, edit and run tests. Approve each step. That trust loop is the foundation.</p></div>
+
+<div class="lvl"><h2><span class="pill">Lvl 2</span> Memory</h2>
+<div class="move">The build: write CLAUDE.md in 15 minutes.</div>
+<pre>> /init   # Claude drafts CLAUDE.md from your repo — then edit it</pre>
+<p class="why">Keep it under a page: stack, folder layout, naming rules, the 3 commands you run daily. Delete anything Claude could figure out itself.</p></div>
+
+<div class="lvl"><h2><span class="pill">Lvl 3</span> Commands</h2>
+<div class="move">The build: learn the context trio, make one custom command.</div>
+<pre>> /context   # see what fills the window
+> /compact   # shrink it
+# custom: save ".claude/commands/standup.md" containing your standup template
+> /standup</pre>
+<p class="why">Custom commands are just markdown files. That's the whole trick.</p></div>
+
+<div class="lvl"><h2><span class="pill">Lvl 4</span> Skills</h2>
+<div class="move">The build: package the workflow you repeat most.</div>
+<pre># .claude/skills/review/SKILL.md — your review checklist, your rules
+> /review src/api/orders.ts</pre>
+<p class="why">A skill = a playbook file Claude loads on demand. Mine run my whole content system.</p></div>
+
+<div class="lvl"><h2><span class="pill">Lvl 5</span> MCP</h2>
+<div class="move">The build: connect ONE server you'd actually use.</div>
+<pre>claude mcp add   # pick one: Notion, Gmail, Postgres, your browser</pre>
+<p class="why">One good connection beats ten idle ones. "Read my Notion roadmap and draft this week's plan" is the moment MCP clicks.</p></div>
+
+<div class="lvl"><h2><span class="pill">Lvl 6</span> Subagents</h2>
+<div class="move">The build: hand off one long job.</div>
+<pre>> use a subagent to audit every API route for missing auth checks,
+  and report back a table</pre>
+<p class="why">Your main thread stays clean while the heavy search runs in its own context.</p></div>
+
+<div class="lvl"><h2><span class="pill">Lvl 7</span> Hooks</h2>
+<div class="move">The build: one guard + one notification.</div>
+<pre># settings.json → hooks: block "rm -rf", and ping you when Claude finishes
+# ask Claude itself: "add a hook that blocks destructive commands"</pre>
+<p class="why">Hooks are the seatbelt that makes the higher levels safe to automate.</p></div>
+
+<div class="lvl"><h2><span class="pill">Lvl 8</span> Headless</h2>
+<div class="move">The build: put Claude in CI once.</div>
+<pre>claude -p "review this diff for regressions, exit non-zero if risky"</pre>
+<p class="why">Run it in a GitHub Action on every PR. Now the review happens whether you remember or not.</p></div>
+
+<div class="lvl"><h2><span class="pill">Lvl 9</span> Routines</h2>
+<div class="move">The build: one scheduled morning job.</div>
+<pre>> /schedule every weekday 6:00 — triage my inbox, draft replies,
+  leave a 5-line brief</pre>
+<p class="why">This is the level where the business starts without you. Start with ONE routine and live with it a week before adding more.</p></div>
+
+<div class="stop"><b>Where founders should stop:</b> levels 1–5 cover 90% of a
+founder's real work. Only climb to 6–9 when a specific repeated pain demands it —
+automation you don't need is just maintenance you do.</div>
+
+<div class="footer">One level per sitting. Nine sittings from now, it's a different job.
+<div class="handle">@shazimbuilds — DM "LEVELS" with questions</div></div>
+
+</div></body></html>

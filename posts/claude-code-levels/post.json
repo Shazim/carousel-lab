@@ -1,0 +1,323 @@
+{
+  "slug": "claude-code-levels",
+  "title": "The 9 Levels of Claude Code",
+  "topic": "Claude Code mastery ladder: terminal -> memory -> commands -> skills -> MCP -> subagents -> hooks -> headless -> routines",
+  "handle": "@shazimbuilds",
+  "keyword": "LEVELS",
+  "guideUrl": null,
+  "status": "draft",
+  "posted": null,
+  "results": {
+    "reach": null,
+    "saves": null,
+    "shares": null,
+    "comments": null,
+    "follows": null
+  },
+  "notes": "Backgrounds use CSS dune fallback; generated painting slots: assets/images/lvl-bg.png (slides) + lvl-bg-cover.png (cover). All mockup content is real and correct.",
+  "template": "level-series",
+  "cover": {
+    "kicker": "The 9 levels of",
+    "title": "Claude Code",
+    "levels": [
+      {
+        "label": "Terminal",
+        "color": "#AECBEE"
+      },
+      {
+        "label": "Memory",
+        "color": "#9FC4EC"
+      },
+      {
+        "label": "Commands",
+        "color": "#AEE3C6"
+      },
+      {
+        "label": "Skills",
+        "color": "#C6DF7F"
+      },
+      {
+        "label": "MCP",
+        "color": "#EFD160"
+      },
+      {
+        "label": "Subagents",
+        "color": "#EBB54F"
+      },
+      {
+        "label": "Hooks",
+        "color": "#E8913D"
+      },
+      {
+        "label": "Headless",
+        "color": "#D44A31"
+      },
+      {
+        "label": "Routines",
+        "color": "#262626"
+      }
+    ]
+  },
+  "levels": [
+    {
+      "n": 1,
+      "title": "Terminal",
+      "color": "#AECBEE",
+      "def": "Claude Code lives in your terminal and takes plain English",
+      "body": "You describe the change you want. Claude reads your files, makes the edits and runs the tests — and asks first before anything risky.",
+      "chips": [
+        "fix a bug",
+        "add a feature",
+        "run the tests"
+      ],
+      "mock": {
+        "type": "toolcalls",
+        "title": "Claude Code",
+        "sub": "Opus 4.8 · running tools",
+        "rows": [
+          {
+            "k": "R",
+            "t": "Read",
+            "d": "src/auth/session.ts",
+            "r": "✓ 96 lines"
+          },
+          {
+            "k": "E",
+            "t": "Edit",
+            "d": "src/auth/session.ts · +12 −3",
+            "r": "✓ applied"
+          },
+          {
+            "k": "$",
+            "t": "Bash",
+            "d": "npm test — session",
+            "r": "✓ 14 passed"
+          }
+        ],
+        "perm": {
+          "q": "Claude wants to run",
+          "cmd": "npm run db:migrate"
+        }
+      }
+    },
+    {
+      "n": 2,
+      "title": "Memory",
+      "color": "#9FC4EC",
+      "mockPos": "top",
+      "def": "CLAUDE.md — a file in your repo that Claude reads at the start of every session",
+      "body": "You write your stack, naming and rules into CLAUDE.md once, and every session starts already knowing your project. No re-explaining.",
+      "chips": [
+        "your coding style",
+        "the file layout",
+        "commands you reuse"
+      ],
+      "mock": {
+        "type": "lines",
+        "title": "Claude Code",
+        "sub": "~/taskflow",
+        "meter": "38.4k / 1M",
+        "lines": [
+          "<span class='org'>></span> refactor the billing flow <span class='cy'>@src/billing/checkout.ts @CLAUDE.md</span>",
+          "<span class='dim'>└</span> <span class='grn'>✓ read</span> CLAUDE.md <span class='dim'>— conventions, stack, naming</span>",
+          "<span class='dim'>└</span> <span class='grn'>✓ read</span> src/billing/checkout.ts <span class='dim'>(214 lines)</span>",
+          "<span class='dim'>└</span> <span class='grn'>✓ read</span> src/billing/stripe.ts <span class='dim'>(referenced import)</span>",
+          "<span class='dim'>└</span> <span class='grn'>✓ loaded</span> 3 files · ~38.4k tokens into context"
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "title": "Commands",
+      "color": "#AEE3C6",
+      "align": "right",
+      "def": "slash commands are shortcuts you type with a / to run a set action",
+      "body": "One keystroke triggers a set action — /clear wipes the chat, /compact shrinks the history, /context shows what fills the window.",
+      "chips": [
+        "clear the context",
+        "compact the chat",
+        "make your own"
+      ],
+      "mock": {
+        "type": "cmdlist",
+        "title": "Claude Code",
+        "sub": "/ commands",
+        "rows": [
+          {
+            "c": "/clear",
+            "d": "wipe the conversation"
+          },
+          {
+            "c": "/compact",
+            "d": "summarise and compress the history"
+          },
+          {
+            "c": "/context",
+            "d": "show what is filling the window"
+          }
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "title": "Skills",
+      "color": "#C6DF7F",
+      "def": "a skill is a saved playbook Claude loads on demand for a repeat task",
+      "body": "You package a repeatable workflow into a skill once, then call it by name — and Claude follows your exact steps every single time.",
+      "chips": [
+        "review code",
+        "write tests",
+        "ship content"
+      ],
+      "mock": {
+        "type": "skilllist",
+        "title": "Claude Code",
+        "sub": "/ skills",
+        "rows": [
+          {
+            "c": "/carousel",
+            "d": "topic in, 10 slides out — my system"
+          },
+          {
+            "c": "/review",
+            "d": "spot bugs before I commit"
+          },
+          {
+            "c": "/ship",
+            "d": "build, verify, deploy, announce"
+          },
+          {
+            "c": "/guide",
+            "d": "turn a build into a lead magnet"
+          },
+          {
+            "c": "/invoice",
+            "d": "draft the month's invoices"
+          }
+        ]
+      }
+    },
+    {
+      "n": 5,
+      "title": "MCP",
+      "color": "#EFD160",
+      "def": "MCP is the open standard that plugs Claude into your outside tools and data",
+      "body": "Connect servers through MCP and Claude reaches your real tools — it reads your docs, queries your database or drives your browser without leaving the terminal.",
+      "logos": [
+        "notion",
+        "gmail",
+        "googledrive",
+        "github",
+        "postgresql",
+        "linear",
+        "figma",
+        "stripe"
+      ],
+      "mockPos": "top"
+    },
+    {
+      "n": 6,
+      "title": "Subagents",
+      "color": "#EBB54F",
+      "def": "a subagent is a second Claude that runs a task in its own context window",
+      "body": "Hand a big job to a subagent and it works on the side — a long search or refactor runs in parallel while your main thread stays clean.",
+      "chips": [
+        "deep research",
+        "big refactors",
+        "parallel work"
+      ],
+      "diagram": [
+        "security review",
+        "test runner",
+        "docs writer"
+      ]
+    },
+    {
+      "n": 7,
+      "title": "Hooks",
+      "color": "#E8913D",
+      "align": "right",
+      "mockPos": "top",
+      "def": "a hook is a script Claude runs automatically on a chosen event",
+      "body": "You map an event to a script in settings.json — load context when a session starts, guard risky commands, get pinged when Claude stops.",
+      "chips": [
+        "load context",
+        "block risky commands",
+        "notify when done"
+      ],
+      "mock": {
+        "type": "lines",
+        "title": "settings.json",
+        "sub": "",
+        "lines": [
+          "{",
+          "&nbsp;&nbsp;<span class='cy'>\"hooks\"</span>: {",
+          "&nbsp;&nbsp;&nbsp;&nbsp;<span class='cy'>\"events\"</span>: [",
+          "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ <span class='cy'>\"event\"</span>: <span class='hlt'>\"session starts\"</span>, <span class='cy'>\"script\"</span>: <span class='yl'>\"load-context.sh\"</span> },",
+          "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ <span class='cy'>\"event\"</span>: <span class='hlt'>\"before a tool\"</span>, <span class='cy'>\"script\"</span>: <span class='yl'>\"guard.sh\"</span> },",
+          "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ <span class='cy'>\"event\"</span>: <span class='hlt'>\"claude stops\"</span>, <span class='cy'>\"script\"</span>: <span class='yl'>\"notify.sh\"</span> }",
+          "&nbsp;&nbsp;&nbsp;&nbsp;] <span class='dim'>← on this event, run this script</span>",
+          "&nbsp;&nbsp;}",
+          "}"
+        ]
+      }
+    },
+    {
+      "n": 8,
+      "title": "Headless",
+      "color": "#D44A31",
+      "align": "right",
+      "def": "headless mode runs Claude Code from a script with no chat window",
+      "body": "Call claude -p inside CI or a cron job and it works with no chat open — reviewing every pull request and failing the build on a regression.",
+      "chips": [
+        "review every pr",
+        "nightly checks",
+        "gate the build"
+      ],
+      "mock": {
+        "type": "lines",
+        "title": "Claude Code",
+        "sub": "CI · pull request",
+        "lines": [
+          "<span class='dim'>$</span> claude -p <span class='yl'>'review the diff, fail on regressions'</span>",
+          "",
+          "<span class='dim'>analysed 14 changed files</span>",
+          "<span class='dim'>flagged one risky migration</span>",
+          "",
+          "<span class='grn'>check passed, comment posted</span>"
+        ]
+      }
+    },
+    {
+      "n": 9,
+      "title": "Routines",
+      "color": "#4a4a4a",
+      "def": "a routine is a Claude Code job that runs on a schedule in the cloud",
+      "body": "Put a task on a schedule and Claude runs it on its own — triaging your inbox or checking the deploy every morning before you open your laptop.",
+      "chips": [
+        "triage your inbox",
+        "check the deploy",
+        "daily summary"
+      ],
+      "mock": {
+        "type": "lines",
+        "title": "Claude Code",
+        "sub": "/ schedule",
+        "lines": [
+          "<span class='org'>></span> /schedule <span class='yl'>morning triage</span> · 6:00 am",
+          "",
+          "<span class='grn'>✓</span> Mon&nbsp;&nbsp;<span class='grn'>✓</span> Tue&nbsp;&nbsp;<span class='grn'>✓</span> Wed&nbsp;&nbsp;<span class='grn'>✓</span> Thu&nbsp;&nbsp;<span class='grn'>✓</span> Fri",
+          "",
+          "<span class='dim'>it triages the inbox before you wake up</span>"
+        ]
+      }
+    }
+  ],
+  "cta": {
+    "line1": "Want the",
+    "mark": "roadmap",
+    "line2": "?",
+    "sub": "Comment LEVELS and I'll DM you the 9-level roadmap — one build per level, the exact commands, and where founders should stop.",
+    "pill": "@shazimbuilds"
+  }
+}

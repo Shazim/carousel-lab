@@ -1,0 +1,108 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Vitamin Pack — @shazimbuilds</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#EFECE3; color:#171512; font-family:'Inter',sans-serif;
+         font-size:17px; line-height:1.65; }
+  .page { max-width:760px; margin:0 auto; padding:64px 28px 96px; }
+  h1, h2 { font-family:'Fraunces', Georgia, serif; font-weight:560; letter-spacing:-1px; }
+  h1 { font-size:52px; line-height:1.1; }
+  h1 .hi { background:linear-gradient(transparent 30%, #DCC5EE 30%, #DCC5EE 96%, transparent 96%); padding:0 8px; }
+  .kicker { font-family:'Inter',sans-serif; font-size:13px; font-weight:600; letter-spacing:3.5px; text-transform:uppercase; color:#8a857c; margin-bottom:14px; }
+  .intro { margin:26px 0 10px; color:#3b3830; }
+  h2 { font-size:34px; margin:64px 0 6px; }
+  h2 .pill { display:inline-block; font-size:22px; vertical-align:middle; margin-right:10px;
+             padding:2px 14px; border-radius:8px; }
+  .why { font-family:'Fraunces', serif; font-size:21px; font-weight:480; color:#55524b; margin-bottom:18px; }
+  .box { background:#fff; border-radius:16px; padding:22px 26px; margin:18px 0;
+         box-shadow:0 10px 24px rgba(40,30,10,.08); }
+  .box h3 { font-size:14px; letter-spacing:1.5px; text-transform:uppercase; color:#8a857c; margin-bottom:10px; }
+  ul { padding-left:22px; margin:10px 0; }
+  li { margin:7px 0; }
+  code, pre { font-family:ui-monospace, Menlo, monospace; font-size:14.5px; }
+  pre { background:#2B2A28; color:#E3E0DA; border-radius:14px; padding:20px 22px;
+        white-space:pre-wrap; line-height:1.55; margin:14px 0; }
+  .mistake { border-left:4px solid #E75480; padding:12px 18px; background:#fff;
+             border-radius:0 12px 12px 0; margin:16px 0; }
+  .mistake b { color:#c23a63; }
+  .footer { margin-top:80px; text-align:center; font-family:'Fraunces',serif;
+            font-size:20px; font-weight:480; color:#55524b; }
+  .footer .handle { font-family:'Inter',sans-serif; font-style:normal; font-size:14px;
+            letter-spacing:2px; color:#8a857c; margin-top:8px; }
+</style></head><body><div class="page">
+
+<div class="kicker">the founder checkup — prescription enclosed</div>
+<h1>The <span class="hi">Vitamin Pack</span></h1>
+<p class="intro">Five systems that let one founder run like a team. Each one below has the
+20% that matters, a starter build you can ship this weekend, and the mistake that
+kills it. Tools assumed: <b>Claude</b> + <b>n8n</b> (or Zapier/Make — the shapes are identical).</p>
+
+<h2><span class="pill" style="background:#F2EC4E">A</span>Automations</h2>
+<p class="why">Admin is a tax you can stop paying.</p>
+<div class="box"><h3>Starter build — the follow-up machine</h3>
+<ul>
+<li><b>Trigger:</b> new lead lands (form, DM export, email label).</li>
+<li><b>Step 1:</b> n8n webhook catches it, writes the lead to a sheet/CRM.</li>
+<li><b>Step 2:</b> Claude drafts a personal first reply from the lead's own words.</li>
+<li><b>Step 3:</b> draft lands in your inbox for a one-tap send. No reply in 3 days → polite nudge drafted automatically.</li>
+</ul></div>
+<pre>You are my follow-up assistant. Lead's message: [PASTE]
+What we sell: [OFFER] Tone: warm, direct, zero corporate filler.
+Draft a 4-sentence reply that references their exact words,
+answers the one question they actually asked, and ends with a
+single concrete next step. Do not oversell. Think step by step.</pre>
+<div class="mistake"><b>The mistake:</b> automating the send. Agents draft, you send — one rule keeps quality and trust intact.</div>
+
+<h2><span class="pill" style="background:#C7EC82">B</span>Build in public</h2>
+<p class="why">Proof beats promises — especially when you sell builds.</p>
+<div class="box"><h3>Starter build — the weekly proof loop</h3>
+<ul>
+<li><b>Monday:</b> one screenshot of the thing on your screen right now (behind-the-scenes).</li>
+<li><b>Wednesday:</b> one before/after — old flow vs new flow, old number vs new number.</li>
+<li><b>Friday:</b> one lesson that cost you something. Failures out-perform wins.</li>
+<li>Batch all three from a 15-min voice note: Claude turns the transcript into three drafts.</li>
+</ul></div>
+<div class="mistake"><b>The mistake:</b> posting outcomes without the mess. The mess is the content. Polished-only feeds read as ads.</div>
+
+<h2><span class="pill" style="background:#F6C7DE">C</span>Claude</h2>
+<p class="why">One model, four jobs, running while you sleep.</p>
+<div class="box"><h3>Starter build — Claude on cron</h3>
+<ul>
+<li><b>Code:</b> Claude Code for the MVP work you already do.</li>
+<li><b>Content:</b> a nightly job drafts tomorrow's post from your notes file.</li>
+<li><b>Customer replies:</b> first-pass drafts for every new ticket/DM (see Vitamin A).</li>
+<li><b>Cron:</b> schedule each job. Every draft waits in a folder for your morning review.</li>
+</ul></div>
+<pre>Read my notes file below. Write tomorrow's post for founders
+who want AI automation. Format: hook line, 3 short lines of
+substance, one question at the end. My voice: plain words,
+no hype, lowercase. Notes: [PASTE NOTES]</pre>
+<div class="mistake"><b>The mistake:</b> prompting live every time. The wins compound when prompts are saved, versioned, and run on a schedule.</div>
+
+<h2><span class="pill" style="background:#A9E9DB">D</span>Data</h2>
+<p class="why">You cannot fix what you cannot see.</p>
+<div class="box"><h3>Starter build — the daily digest</h3>
+<ul>
+<li>One sheet with 5 numbers max: leads in, replies sent, calls booked, cash in, top drop-off.</li>
+<li>n8n pulls the numbers every morning at 7:00.</li>
+<li>Claude writes a 5-line digest: what moved, what stalled, the one thing to push today.</li>
+<li>Digest arrives wherever you already look (email/Telegram/Slack).</li>
+</ul></div>
+<div class="mistake"><b>The mistake:</b> building a 30-widget dashboard you never open. Five numbers you read daily beat fifty you don't.</div>
+
+<h2><span class="pill" style="background:#DCC5EE">E</span>Email</h2>
+<p class="why">The only audience the algorithm can't take away.</p>
+<div class="box"><h3>Starter build — magnet → welcome → weekly</h3>
+<ul>
+<li><b>Magnet:</b> package one thing you already built (this pack is one). Keyword comment → DM → link.</li>
+<li><b>Welcome:</b> 3 short emails — the story, the best build, the offer. Claude drafts, you edit once, it runs forever.</li>
+<li><b>Weekly:</b> one build, one lesson, one link. Repurposed from Vitamin B — nothing written twice.</li>
+</ul></div>
+<div class="mistake"><b>The mistake:</b> waiting until you "have something to sell." The list is the asset; start it before you need it.</div>
+
+<div class="footer">Build one vitamin per week. Five weeks from now your business runs different.
+<div class="handle">@shazimbuilds — DM "VITAMIN" questions any time</div></div>
+
+</div></body></html>

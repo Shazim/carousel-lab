@@ -1,0 +1,15 @@
+{
+  "name": "carousel-lab",
+  "version": "1.0.0",
+  "description": "One folder per post. Everything that post needs lives inside it: content, rendered slides, caption, checklist, and (when the CTA promises one) the guide. Open the folder, work top to bottom, publish.",
+  "main": "gen-icons.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "playwright": "^1.62.1"
+  }
+}
