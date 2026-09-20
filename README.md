@@ -45,6 +45,12 @@ posts/<slug>/
 | agent-recipes | floating card, WHEN/DO/SEND workflows | system recipes |
 | meme | generated character photo + composited text/logos | the capy founder |
 
+## Video posts
+
+Reels have no template: same folder shape, `"template": null, "format": "video"`,
+and the deliverables are the hook, caption, hashtags, pinned comment, replies
+and the guide (see `posts/expensive-employee/`). Post natively to IG + TikTok.
+
 ## The rules in one breath
 
 Clone layouts, never words — rewrite everything for founders. Text, logos and
