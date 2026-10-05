@@ -25,10 +25,20 @@ const BURST = `<svg viewBox="0 0 24 24" fill="${ORANGE}" width="100%" height="10
 const CSS = `
   * { margin:0; padding:0; box-sizing:border-box; }
   .slide { width:1080px; height:1350px; position:relative; overflow:hidden;
-           background:${GROUND}; color:${TEXT}; font-family:'Manrope',sans-serif; }
+           font-family:'Manrope',sans-serif;
+           --ground:${GROUND}; --card:${CARD}; --line:${LINE}; --text:${TEXT};
+           --mute:${MUTE}; --faint:#6A7077; --tile:#000; --pick:#17150F;
+           --track:#2B2F34; --arrow:#3A3F45; --shadow:0 14px 34px rgba(0,0,0,.34);
+           --glow:rgba(255,138,0,.13);
+           background:var(--ground); color:var(--text); }
+  .slide.light { --ground:#F5F3EE; --card:#FFFFFF; --line:#E3DFD6; --text:#14161A;
+           --mute:#6B7177; --faint:#9A9F a6; --faint:#969CA3; --tile:#0E0F11;
+           --pick:#FFF7EE; --track:#E3DFD6; --arrow:#C3BEB4;
+           --shadow:0 12px 30px rgba(60,50,35,.09), 0 3px 8px rgba(60,50,35,.05);
+           --glow:rgba(255,138,0,.16); }
   .glow { position:absolute; top:-340px; right:-260px; width:900px; height:900px;
           border-radius:50%; background:radial-gradient(circle,
-          rgba(255,138,0,.13), rgba(255,138,0,0) 62%); pointer-events:none; }
+          var(--glow), rgba(255,138,0,0) 62%); pointer-events:none; }
   .wrap { position:absolute; inset:0; padding:84px 88px 118px;
           display:flex; flex-direction:column; }
 
@@ -36,19 +46,19 @@ const CSS = `
             color:${ORANGE}; margin-bottom:22px; }
   .title { font-family:'Cal Sans',sans-serif; font-weight:400; font-size:74px;
            line-height:1.08; letter-spacing:-.5px; }
-  .body { font-size:32px; font-weight:500; color:${MUTE}; line-height:1.45;
+  .body { font-size:32px; font-weight:500; color:var(--mute); line-height:1.45;
           margin-top:24px; max-width:880px; }
 
   /* model cards */
   .fill { flex:1; display:flex; flex-direction:column; justify-content:center; padding:48px 0 8px; }
   .cards { display:flex; flex-direction:column; gap:24px; }
-  .card { background:${CARD}; border:1.5px solid ${LINE}; border-radius:28px;
+  .card { background:var(--card); border:1.5px solid var(--line); border-radius:28px;
           padding:34px 36px; display:flex; align-items:center; gap:28px;
-          box-shadow:0 14px 34px rgba(0,0,0,.34); }
-  .card.pick { border-color:rgba(255,138,0,.5); background:#17150F;
-               box-shadow:0 14px 34px rgba(0,0,0,.34), inset 3px 0 0 ${ORANGE}; }
-  .tile { width:90px; height:90px; border-radius:24px; background:#000;
-          border:1.5px solid ${LINE}; display:flex; align-items:center;
+          box-shadow:var(--shadow); }
+  .card.pick { border-color:rgba(255,138,0,.55); background:var(--pick);
+               box-shadow:var(--shadow), inset 3px 0 0 ${ORANGE}; }
+  .tile { width:90px; height:90px; border-radius:24px; background:var(--tile);
+          border:1.5px solid var(--line); display:flex; align-items:center;
           justify-content:center; flex:none; }
   .tile .lg { width:48%; height:48%; }
   .cards.solo .card { padding:50px 46px; gap:34px; }
@@ -58,14 +68,14 @@ const CSS = `
   .cards.solo .cprice { font-size:40px; }
   .cmeta { flex:1; min-width:0; }
   .cname { font-size:36px; font-weight:700; letter-spacing:-.3px; }
-  .cnote { font-size:23px; font-weight:500; color:${MUTE}; margin-top:6px; }
+  .cnote { font-size:23px; font-weight:500; color:var(--mute); margin-top:6px; }
   .cprice { font-family:'JetBrains Mono',monospace; font-size:29px; font-weight:500;
             font-variant-numeric:tabular-nums; text-align:right; flex:none;
             white-space:nowrap; }
   .card.pick .cprice { color:${ORANGE}; }
-  .card .cprice small { display:block; font-size:16px; color:${MUTE};
+  .card .cprice small { display:block; font-size:16px; color:var(--mute);
                         letter-spacing:1px; margin-top:6px; font-weight:400; }
-  .where { font-family:'JetBrains Mono',monospace; font-size:24px; color:${TEXT};
+  .where { font-family:'JetBrains Mono',monospace; font-size:24px; color:var(--text);
            text-align:right; flex:none; }
 
   /* chart */
@@ -73,32 +83,32 @@ const CSS = `
   .brow { display:flex; align-items:center; gap:26px; }
   .blabel { width:252px; flex:none; font-size:28px; font-weight:600; }
   .btrack { flex:1; display:flex; align-items:center; gap:22px; min-width:0; }
-  .bar { height:54px; border-radius:12px; background:#2B2F34; flex:none; }
+  .bar { height:54px; border-radius:12px; background:var(--track); flex:none; }
   .brow.win .bar { background:${ORANGE}; }
   .bval { font-family:'JetBrains Mono',monospace; font-size:36px; font-weight:500;
-          font-variant-numeric:tabular-nums; color:${MUTE}; white-space:nowrap; }
+          font-variant-numeric:tabular-nums; color:var(--mute); white-space:nowrap; }
   .brow.win .bval { color:${ORANGE}; font-size:52px; }
-  .brow.win .blabel { color:${TEXT}; }
-  .cfoot { font-size:22px; color:#6A7077; margin-top:34px; }
+  .brow.win .blabel { color:var(--text); }
+  .cfoot { font-size:22px; color:var(--faint); margin-top:34px; }
 
   /* stat */
-  .stat { background:${CARD}; border:1.5px solid ${LINE};
+  .stat { background:var(--card); border:1.5px solid var(--line);
           border-radius:30px; padding:52px; text-align:center;
-          box-shadow:0 14px 34px rgba(0,0,0,.34); }
+          box-shadow:var(--shadow); }
   .stat .big { font-family:'JetBrains Mono',monospace; font-size:112px; font-weight:500;
                color:${ORANGE}; line-height:1; font-variant-numeric:tabular-nums; }
-  .stat .cap { font-size:27px; color:${MUTE}; margin-top:20px; font-weight:500; }
+  .stat .cap { font-size:27px; color:var(--mute); margin-top:20px; font-weight:500; }
 
   /* flow */
   .flow { display:flex; flex-direction:column; gap:18px; }
-  .fstep { background:${CARD}; border:1.5px solid ${LINE}; border-radius:24px;
+  .fstep { background:var(--card); border:1.5px solid var(--line); border-radius:24px;
            padding:26px 32px; display:flex; align-items:center; gap:24px; }
-  .fstep.hot { border-color:rgba(255,138,0,.5); background:#17150F; }
+  .fstep.hot { border-color:rgba(255,138,0,.55); background:var(--pick); }
   .fstep .n { font-family:'JetBrains Mono',monospace; font-size:22px; color:${ORANGE};
               width:34px; flex:none; }
   .fstep .t { font-size:30px; font-weight:600; }
-  .fstep .s { font-size:23px; color:${MUTE}; margin-top:4px; }
-  .farrow { text-align:center; color:#3A3F45; font-size:26px; line-height:1; }
+  .fstep .s { font-size:23px; color:var(--mute); margin-top:4px; }
+  .farrow { text-align:center; color:var(--arrow); font-size:26px; line-height:1; }
   .closer { font-size:30px; font-weight:600; margin-top:34px; line-height:1.4; }
   .closer b { color:${ORANGE}; font-weight:600; }
 
@@ -108,12 +118,12 @@ const CSS = `
   .cov .ctitle { font-family:'Cal Sans',sans-serif; font-weight:400; font-size:132px;
                  line-height:1.02; letter-spacing:-2px; }
   .cov .ctitle em { font-style:normal; color:${ORANGE}; }
-  .cov .csub { font-size:34px; color:${MUTE}; margin-top:30px; font-weight:500;
+  .cov .csub { font-size:34px; color:var(--mute); margin-top:30px; font-weight:500;
                line-height:1.4; max-width:820px; }
   .logorow { display:flex; gap:20px; margin-top:76px; }
   .logorow .tile { width:120px; height:120px; border-radius:28px; }
   .logorow .tile .lg { width:46%; height:46%; }
-  .stamp { font-family:'JetBrains Mono',monospace; font-size:20px; color:#6A7077;
+  .stamp { font-family:'JetBrains Mono',monospace; font-size:20px; color:var(--faint);
            margin-top:34px; letter-spacing:.5px; }
 
   /* cta */
@@ -123,21 +133,22 @@ const CSS = `
   .cta .q { font-family:'Cal Sans',sans-serif; font-weight:400; font-size:82px;
             line-height:1.14; letter-spacing:-1px; }
   .cta .q em { font-style:normal; color:${ORANGE}; }
-  .cta .sub { font-size:30px; color:${MUTE}; margin-top:40px; font-weight:500; }
+  .cta .sub { font-size:30px; color:var(--mute); margin-top:40px; font-weight:500; }
 
   .foot { position:absolute; left:88px; right:88px; bottom:52px;
           display:flex; align-items:center; justify-content:space-between; }
   .foot .mark { display:flex; align-items:center; gap:14px; }
   .foot .mark .b { width:26px; height:26px; }
-  .foot .handle { font-size:24px; font-weight:700; letter-spacing:1.5px; color:#7E848B; }
-  .foot .count { font-family:'JetBrains Mono',monospace; font-size:22px; color:#555B61;
+  .foot .handle { font-size:24px; font-weight:700; letter-spacing:1.5px; color:var(--mute); }
+  .foot .count { font-family:'JetBrains Mono',monospace; font-size:22px; color:var(--faint);
                  font-variant-numeric:tabular-nums; }
 `;
 
+let THEME = '';
 function page(inner) {
   return `<!DOCTYPE html><html><head><meta charset="utf-8">
   <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Manrope:wght@400..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>${CSS}</style></head><body><div class="slide"><div class="glow"></div>${inner}</div></body></html>`;
+  <style>${CSS}</style></head><body><div class="slide ${THEME}"><div class="glow"></div>${inner}</div></body></html>`;
 }
 
 function foot(handle, i, total) {
@@ -165,6 +176,7 @@ function cards(list) {
 
 function build(post, { root }) {
   const pages = {};
+  THEME = post.theme === 'light' ? 'light' : '';
   const H = post.handle || '@shazimbuilds';
   const total = 1 + (post.slides || []).length + 1;
   let n = 0;

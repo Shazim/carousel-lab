@@ -22,7 +22,7 @@ names and prices change every month. these rules don't.
 
 which ai subscription are you paying for that you barely use? 👇
 
-(prices checked 5 oct 2026, usd per million tokens in/out)
+(all prices usd per million tokens, input/output)
 
 ## Hashtags (in caption)
 
