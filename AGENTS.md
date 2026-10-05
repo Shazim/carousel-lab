@@ -163,6 +163,8 @@ full draft exists, and iterate on their feedback. They review on their phone.
 | founder-agents | agent-recipes | draft — AGENTS guide written, not published |
 | capy-team-meme | meme | draft — ready to post |
 | expensive-employee | none (video) | draft — guide written, needs hosting for AUTOMATE |
+| ai-model-picker | model-cards (dark) | ready — scheduled Wed 14 Oct; re-check prices first |
+| launch-checks | model-cards (dark) | ready — scheduled Wed 21 Oct; DM CTA |
 
 Repo: `git@github.com:Shazim/carousel-lab.git` (branch `main`). Commit after
 each work session. `node_modules/` and `posts/*/build/` are gitignored.

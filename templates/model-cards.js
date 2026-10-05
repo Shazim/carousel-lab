@@ -29,13 +29,13 @@ const CSS = `
            --ground:${GROUND}; --card:${CARD}; --line:${LINE}; --text:${TEXT};
            --mute:${MUTE}; --faint:#6A7077; --tile:#000; --pick:#17150F;
            --track:#2B2F34; --arrow:#3A3F45; --shadow:0 14px 34px rgba(0,0,0,.34);
-           --glow:rgba(255,138,0,.13);
+           --glow:rgba(255,138,0,.13); --ok:#3FB97A; --bad:#FF5F57; --well:#0E0F11;
            background:var(--ground); color:var(--text); }
   .slide.light { --ground:#F5F3EE; --card:#FFFFFF; --line:#E3DFD6; --text:#14161A;
-           --mute:#6B7177; --faint:#9A9F a6; --faint:#969CA3; --tile:#0E0F11;
+           --mute:#6B7177; --faint:#969CA3; --tile:#0E0F11;
            --pick:#FFF7EE; --track:#E3DFD6; --arrow:#C3BEB4;
            --shadow:0 12px 30px rgba(60,50,35,.09), 0 3px 8px rgba(60,50,35,.05);
-           --glow:rgba(255,138,0,.16); }
+           --glow:rgba(255,138,0,.16); --ok:#23955B; --bad:#D93A33; --well:#F3F1EC; }
   .glow { position:absolute; top:-340px; right:-260px; width:900px; height:900px;
           border-radius:50%; background:radial-gradient(circle,
           var(--glow), rgba(255,138,0,0) 62%); pointer-events:none; }
@@ -135,6 +135,95 @@ const CSS = `
   .cta .q em { font-style:normal; color:${ORANGE}; }
   .cta .sub { font-size:30px; color:var(--mute); margin-top:40px; font-weight:500; }
 
+  /* cover big number */
+  .cov .cbig { font-family:'Cal Sans',sans-serif; font-size:270px; line-height:.92;
+               letter-spacing:-6px; color:${ORANGE}; margin:6px 0 18px; }
+  .cov .cbig .tl { font-size:.4em; vertical-align:.62em; margin-right:10px; letter-spacing:0; opacity:.8; }
+  .cov .ctitle.sm { font-size:84px; line-height:1.08; letter-spacing:-1px; }
+
+  /* scan */
+  .scan { display:flex; flex-direction:column; gap:22px; }
+  .snum { background:var(--card); border:1.5px solid var(--line); border-radius:28px;
+          padding:36px 40px; display:flex; align-items:baseline; gap:28px; box-shadow:var(--shadow); }
+  .snum.hot { border-color:rgba(255,138,0,.55); background:var(--pick); }
+  .snum b { font-family:'Cal Sans',sans-serif; font-weight:400; font-size:96px; line-height:1;
+            letter-spacing:-2px; min-width:370px; }
+  .snum.hot b { color:${ORANGE}; }
+  .snum span { font-size:30px; font-weight:600; color:var(--mute); }
+  .snum.hot span { color:var(--text); }
+  .chiprow { display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
+  .tchip { font-size:23px; font-weight:600; color:var(--mute); border:1.5px solid var(--line);
+           border-radius:999px; padding:9px 20px; }
+
+  /* mock window */
+  .mock { background:var(--card); border:1.5px solid var(--line); border-radius:28px;
+          overflow:hidden; box-shadow:var(--shadow); }
+  .mhead { display:flex; align-items:center; gap:14px; padding:20px 28px;
+           border-bottom:1.5px solid var(--line); font-size:22px; font-weight:600; color:var(--mute); }
+  .mdots { display:inline-flex; gap:8px; }
+  .mdots i { width:13px; height:13px; border-radius:50%; display:inline-block; }
+  .mbody { padding:30px 32px 32px; display:flex; flex-direction:column; gap:18px; }
+  .mono { font-family:'JetBrains Mono',monospace; }
+  .url { background:var(--well); border:1.5px solid var(--line); border-radius:14px;
+         padding:18px 22px; font-family:'JetBrains Mono',monospace; font-size:26px; color:var(--mute); }
+  .url .id { background:${ORANGE}; color:#120B02; border-radius:6px; padding:1px 8px; font-weight:500; }
+  .who { font-size:21px; color:var(--mute); }
+  .out { display:flex; align-items:center; gap:18px; font-size:27px; font-weight:600;
+         padding:16px 20px; border-radius:16px; border:1.5px solid var(--line); }
+  .out i { width:38px; height:38px; border-radius:50%; flex:none; display:flex; align-items:center;
+           justify-content:center; font-style:normal; font-size:21px; font-weight:800; color:#fff; }
+  .out.bad i { background:var(--bad); } .out.ok i { background:var(--ok); }
+  .out.bad { border-color:color-mix(in srgb, var(--bad) 45%, transparent); }
+  .out.ok { border-color:color-mix(in srgb, var(--ok) 45%, transparent); }
+  .out em { font-style:normal; color:var(--mute); font-weight:500; }
+  .term { background:var(--well); border-radius:16px; padding:24px 26px;
+          font-family:'JetBrains Mono',monospace; font-size:23px; line-height:1.75; color:var(--text); }
+  .term .p { color:${ORANGE}; } .term .d { color:var(--mute); } .term .g { color:var(--ok); }
+  .trow3 { display:flex; align-items:center; justify-content:space-between; padding:14px 4px;
+           border-bottom:1.5px solid var(--line); font-family:'JetBrains Mono',monospace; font-size:26px; }
+  .trow3:last-of-type { border-bottom:none; }
+  .badge { font-family:'Manrope',sans-serif; font-size:20px; font-weight:800; letter-spacing:.5px;
+           border-radius:999px; padding:7px 16px; }
+  .badge.ok { color:var(--ok); background:color-mix(in srgb, var(--ok) 14%, transparent); }
+  .badge.bad { color:var(--bad); background:color-mix(in srgb, var(--bad) 14%, transparent); }
+  .sql { font-family:'JetBrains Mono',monospace; font-size:21px; color:var(--mute);
+         background:var(--well); border-radius:12px; padding:14px 18px; }
+  .sql b { color:${ORANGE}; font-weight:500; }
+  .payrow { display:flex; align-items:center; gap:20px; }
+  .testmode { font-size:19px; font-weight:800; letter-spacing:2px; color:${ORANGE};
+              border:1.5px solid ${ORANGE}; border-radius:8px; padding:6px 12px; }
+  .paybtn { position:relative; background:var(--text); color:var(--ground); font-size:30px;
+            font-weight:800; border-radius:14px; padding:18px 40px; }
+  .paybtn sup { position:absolute; top:-14px; right:-16px; background:${ORANGE}; color:#120B02;
+                font-size:19px; font-weight:800; border-radius:999px; padding:4px 11px; }
+  .card4242 { font-family:'JetBrains Mono',monospace; font-size:21px; color:var(--mute); margin-left:auto; }
+  .step { display:flex; align-items:center; gap:18px; font-size:27px; font-weight:600; }
+  .step .n { font-family:'JetBrains Mono',monospace; font-size:20px; color:${ORANGE}; width:30px; }
+  .step em { font-style:normal; margin-left:auto; font-family:'JetBrains Mono',monospace;
+             font-size:21px; color:var(--mute); font-weight:400; }
+  .step.done em { color:var(--ok); }
+  .mnote { font-size:23px; color:var(--mute); margin-top:24px; line-height:1.45; }
+  .mnote b { color:var(--text); font-weight:600; }
+
+  /* compare */
+  .cmp { display:flex; flex-direction:column; gap:22px; }
+  .ccard { background:var(--card); border:1.5px solid var(--line); border-radius:30px;
+           padding:44px 46px; box-shadow:var(--shadow); }
+  .ccard.pick { border-color:rgba(255,138,0,.55); background:var(--pick);
+                box-shadow:var(--shadow), inset 3px 0 0 ${ORANGE}; }
+  .ccard .top { display:flex; align-items:baseline; gap:22px; }
+  .ccard .amt { font-family:'Cal Sans',sans-serif; font-size:100px; line-height:1; letter-spacing:-1px; }
+  .ccard.pick .amt { color:${ORANGE}; }
+  .ccard .lbl { font-size:31px; font-weight:600; color:var(--mute); }
+  .ccard.pick .lbl { color:var(--text); }
+  .ticks { display:flex; flex-wrap:wrap; gap:12px 12px; margin-top:28px; }
+  .tick { font-size:25px; font-weight:600; border-radius:999px; padding:10px 20px;
+          color:var(--ok); background:color-mix(in srgb, var(--ok) 13%, transparent); }
+
+  /* cta pill */
+  .cta .pill { margin-top:44px; background:${ORANGE}; color:#120B02; font-size:32px; font-weight:800;
+               border-radius:999px; padding:20px 46px; }
+
   .foot { position:absolute; left:88px; right:88px; bottom:52px;
           display:flex; align-items:center; justify-content:space-between; }
   .foot .mark { display:flex; align-items:center; gap:14px; }
@@ -174,6 +263,19 @@ function cards(list) {
   </div>`).join('')}</div>`;
 }
 
+const DOTS = `<span class="mdots"><i style="background:#EC6A5E"></i><i style="background:#F5BF4F"></i><i style="background:#61C554"></i></span>`;
+const MOCKS = {
+  urlbar: (m) => `<div class="who">${m.who}</div>
+    <div class="url">${m.url}</div>
+    ${m.outcomes.map((o) => `<div class="out ${o.ok ? 'ok' : 'bad'}"><i>${o.ok ? '✓' : '✕'}</i><span>${o.t}</span></div>`).join('')}`,
+  terminal: (m) => `<div class="term">${m.lines.join('<br>')}</div>`,
+  tables: (m) => `${m.rows.map((r) => `<div class="trow3"><span>${r.name}</span><span class="badge ${r.on ? 'ok' : 'bad'}">${r.on ? 'RLS enabled' : 'RLS disabled'}</span></div>`).join('')}
+    ${m.sql ? `<div class="sql">${m.sql}</div>` : ''}`,
+  payment: (m) => `<div class="payrow"><span class="testmode">TEST MODE</span><span class="paybtn">${m.button}<sup>×2</sup></span><span class="card4242">4242 4242 4242 4242</span></div>
+    ${m.outcomes.map((o) => `<div class="out ok"><i>✓</i><span>${o.t} <em>${o.r}</em></span></div>`).join('')}`,
+  steps: (m) => m.steps.map((st, i) => `<div class="step ${st.done ? 'done' : ''}"><span class="n">${String(i + 1).padStart(2, '0')}</span>${st.t}<em>${st.r || ''}</em></div>`).join(''),
+};
+
 function build(post, { root }) {
   const pages = {};
   THEME = post.theme === 'light' ? 'light' : '';
@@ -186,10 +288,11 @@ function build(post, { root }) {
   const c = post.cover;
   pages[`${pad(++n)}-cover`] = page(`<div class="cov">
     <div class="kicker">${c.kicker}</div>
-    <div class="ctitle">${c.title}</div>
+    ${c.big ? `<div class="cbig">${c.big}</div>` : ''}
+    <div class="ctitle ${c.big ? 'sm' : ''}">${c.title}</div>
     <div class="csub">${c.sub}</div>
-    <div class="logorow">${c.logos.map(tile).join('')}</div>
-    <div class="stamp">${c.stamp}</div>
+    ${c.logos ? `<div class="logorow">${c.logos.map(tile).join('')}</div>` : ''}
+    ${c.stamp ? `<div class="stamp">${c.stamp}</div>` : ''}
   </div>${foot(H, n, total)}`);
 
   (post.slides || []).forEach((s) => {
@@ -208,9 +311,21 @@ function build(post, { root }) {
         <div class="fstep ${st.hot ? 'hot' : ''}"><span class="n">${pad(i + 1)}</span>
         <span><div class="t">${st.t}</div><div class="s">${st.s}</div></span></div>`).join('')}
         <div class="closer">${s.closer}</div></div>`;
+    } else if (s.type === 'scan') {
+      body = `<div class="scan">${s.nums.map((x) => `<div class="snum ${x.hot ? 'hot' : ''}"><b>${x.n}</b><span>${x.t}</span></div>`).join('')}
+        ${s.chips ? `<div class="chiprow">${s.chips.map((c) => `<span class="tchip">${c}</span>`).join('')}</div>` : ''}</div>`;
+    } else if (s.type === 'mock') {
+      body = `<div class="mock"><div class="mhead">${DOTS}${s.mock.title}</div>
+        <div class="mbody">${MOCKS[s.mock.kind](s.mock)}</div></div>`;
+    } else if (s.type === 'compare') {
+      body = `<div class="cmp">${s.options.map((o) => `<div class="ccard ${o.pick ? 'pick' : ''}">
+        <div class="top"><span class="amt">${o.amt}</span><span class="lbl">${o.lbl}</span></div>
+        ${o.ticks ? `<div class="ticks">${o.ticks.map((t) => `<span class="tick">✓ ${t}</span>`).join('')}</div>` : ''}
+      </div>`).join('')}</div>`;
     } else {
       body = cards(s.cards);
     }
+    if (s.note) body += `<div class="mnote">${s.note}</div>`;
     const slug = s.slug || s.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 26);
     pages[`${pad(++n)}-${slug}`] = page(`<div class="wrap">
       <div class="kicker">${s.kicker}</div>
@@ -223,6 +338,7 @@ function build(post, { root }) {
   pages[`${pad(++n)}-cta`] = page(`<div class="cta">
     <div class="q">${post.cta.q}</div>
     <div class="sub">${post.cta.sub}</div>
+    ${post.cta.pill ? `<div class="pill">${post.cta.pill}</div>` : ''}
   </div>${foot(H, n, total)}`);
 
   return pages;

@@ -1,0 +1,198 @@
+{
+  "slug": "launch-checks",
+  "title": "Four Checks Before You Launch",
+  "topic": "Security checklist for AI-built (vibe-coded) apps, after the Lovable flaw and the RedAccess scan",
+  "handle": "@shazimbuilds",
+  "keyword": null,
+  "guideUrl": null,
+  "status": "draft",
+  "scheduled": "2026-10-21",
+  "posted": null,
+  "results": {
+    "reach": null,
+    "saves": null,
+    "shares": null,
+    "comments": null,
+    "follows": null
+  },
+  "notes": "Content from Shazim's brief; sources in research.md. Check 2 nuance added (publishable keys are fine, secret/service-role keys never) — accuracy fix. CTA is a DM, no keyword guide.",
+  "template": "model-cards",
+  "cover": {
+    "kicker": "before you launch",
+    "big": "<span class='tl'>~</span>5,000",
+    "title": "AI-built apps were found <em>leaking data</em>",
+    "sub": "Four checks to run on yours first."
+  },
+  "slides": [
+    {
+      "type": "scan",
+      "slug": "what-happened",
+      "kicker": "What happened",
+      "title": "One scan. 5,000 leaks.",
+      "body": "A May scan of apps built on AI app builders found thousands exposing sensitive data.",
+      "nums": [
+        {
+          "n": "380,000",
+          "t": "apps scanned"
+        },
+        {
+          "n": "~5,000",
+          "t": "exposing sensitive data",
+          "hot": true
+        }
+      ],
+      "chips": [
+        "Lovable",
+        "Replit",
+        "Base44",
+        "and others"
+      ]
+    },
+    {
+      "type": "mock",
+      "slug": "check1-ids",
+      "kicker": "Check 1",
+      "title": "Change the ID in the address bar",
+      "body": "Log in as one user, then swap the ID for another user's.",
+      "mock": {
+        "kind": "urlbar",
+        "title": "logged in as alex",
+        "who": "you, as alex, change one number:",
+        "url": "yourapp.com/invoices/<span class='id'>1043</span>",
+        "outcomes": [
+          {
+            "ok": false,
+            "t": "Sam's invoice loads — stop and fix it"
+          },
+          {
+            "ok": true,
+            "t": "Access denied — you're good"
+          }
+        ]
+      },
+      "note": "This was the flaw that hit Lovable in April."
+    },
+    {
+      "type": "mock",
+      "slug": "check2-secrets",
+      "kicker": "Check 2",
+      "title": "No secrets in the browser",
+      "body": "Search the code that runs in the browser for API keys and secrets. There should be none.",
+      "mock": {
+        "kind": "terminal",
+        "title": "terminal",
+        "lines": [
+          "<span class='p'>$</span> grep -rE \"sk_live_|service_role|_SECRET\" ./dist",
+          "<span class='d'># searching the built browser bundle…</span>",
+          "<span class='g'>✓ no matches</span>"
+        ]
+      },
+      "note": "Publishable keys (like Supabase's anon key) are fine. <b>Secret and service-role keys, never.</b>"
+    },
+    {
+      "type": "mock",
+      "slug": "check3-rls",
+      "kicker": "Check 3",
+      "title": "Lock every table",
+      "body": "On Supabase, turn on row level security for every table — then test it with a second account.",
+      "mock": {
+        "kind": "tables",
+        "title": "database · tables",
+        "rows": [
+          {
+            "name": "profiles",
+            "on": true
+          },
+          {
+            "name": "invoices",
+            "on": true
+          },
+          {
+            "name": "messages",
+            "on": false
+          }
+        ],
+        "sql": "<b>alter table</b> messages <b>enable row level security</b>;"
+      }
+    },
+    {
+      "type": "mock",
+      "slug": "check4-payments",
+      "kicker": "Check 4",
+      "title": "Break the payment on purpose",
+      "body": "In test mode, double-click pay and drop your connection mid-payment.",
+      "mock": {
+        "kind": "payment",
+        "title": "checkout · test mode",
+        "button": "Pay $49",
+        "outcomes": [
+          {
+            "t": "Double-clicked pay",
+            "r": "→ 1 charge"
+          },
+          {
+            "t": "Connection dropped mid-payment",
+            "r": "→ 1 charge"
+          }
+        ]
+      },
+      "note": "<b>One charge, every time.</b> Anything else is a refund waiting to happen."
+    },
+    {
+      "type": "mock",
+      "slug": "bonus-backups",
+      "kicker": "Bonus",
+      "title": "Restore a backup — once",
+      "body": "Before you ever need it. A backup you've never restored is a hope, not a backup.",
+      "mock": {
+        "kind": "steps",
+        "title": "backups",
+        "steps": [
+          {
+            "t": "Pick the latest backup",
+            "r": "2 hours ago"
+          },
+          {
+            "t": "Restore it into a test project",
+            "r": "not production"
+          },
+          {
+            "t": "Log in and click around",
+            "r": "✓ it works",
+            "done": true
+          }
+        ]
+      }
+    },
+    {
+      "type": "compare",
+      "slug": "5k-vs-15k",
+      "kicker": "Why it costs more",
+      "title": "$5K build vs $15K build",
+      "body": "These checks are most of what the extra money buys.",
+      "options": [
+        {
+          "amt": "$5K",
+          "lbl": "works in the demo"
+        },
+        {
+          "amt": "$15K",
+          "lbl": "holds up when someone tries to break it",
+          "pick": true,
+          "ticks": [
+            "access checks",
+            "no exposed secrets",
+            "database rules",
+            "safe payments",
+            "tested backups"
+          ]
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "q": "Not sure what yours <em>would show</em>?",
+    "sub": "Send me a message and I'll tell you where I'd look first.",
+    "pill": "DM @shazimbuilds"
+  }
+}

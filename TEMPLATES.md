@@ -165,6 +165,41 @@ the 1080×1350 canvas — tune by rendering and looking.
   "handleX": 672, "handleY": 1232, "handleColor": "rgba(255,255,255,.8)" }
 ```
 
+## 7. model-cards — dark spec sheet (Family A, black + orange)
+
+Data-dense reference posts: model/price cards, money charts, UI-mockup checks.
+`"theme": "light"` switches to the light palette (dark logo tiles stay dark).
+Kicker + Cal Sans title + body are top-anchored and identical on every slide;
+the content block centres in the remaining space. A single card auto-scales to
+a hero ("solo"). Posts: ai-model-picker, launch-checks.
+
+```json
+"theme": "light (optional)",
+"cover": { "kicker": "…", "big": "<span class='tl'>~</span>5,000 (optional giant number)",
+           "title": "… <em>orange words</em>", "sub": "…",
+           "logos": ["claude","openai","googlegemini","copilot"], "stamp": "optional" },
+"slides": [
+ { "type": "cards", "kicker": "Rule 1", "title": "…", "body": "…",
+   "cards": [ { "icon": "claude", "name": "Claude Opus 5.5", "note": "…",
+                "price": "$4 / $20", "priceNote": "UNTIL …", "pick": true },
+              { "icon": "copilot", "name": "Copilot", "where": "Microsoft 365" } ] },
+ { "type": "chart", "bars": [ { "label": "…", "value": 30, "display": "~$30", "win": false } ], "foot": "…" },
+ { "type": "stat", "stat": "~0.5s", "cap": "…" },
+ { "type": "flow", "steps": [ { "t": "…", "s": "…", "hot": true } ], "closer": "… <b>…</b>" },
+ { "type": "scan", "nums": [ { "n": "380,000", "t": "apps scanned" }, { "n": "~5,000", "t": "…", "hot": true } ],
+   "chips": ["Lovable","Replit"] },
+ { "type": "mock", "mock": { "kind": "urlbar|terminal|tables|payment|steps", "title": "window title", "…": "see posts/launch-checks" } },
+ { "type": "compare", "options": [ { "amt": "$5K", "lbl": "…" },
+     { "amt": "$15K", "lbl": "…", "pick": true, "ticks": ["…"] } ] } ],
+"cta": { "q": "… <em>…</em>?", "sub": "…", "pill": "DM @shazimbuilds (optional)" }
+```
+
+Any slide may add `"note"` (small footnote under the content block).
+Logo ids used: claude, openai, googlegemini, copilot (LobeHub — the real
+Microsoft Copilot mark; never use githubcopilot for Microsoft 365).
+Semantic pass/fail colours (`--ok` / `--bad`) are only for check outcomes —
+never decoration. Prices: JetBrains Mono, tabular-nums.
+
 ---
 
 ## Building a NEW template (the process that works)
