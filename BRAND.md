@@ -62,6 +62,11 @@ reading role is the #1 "AI-made" tell. Sans lives ONLY inside UI mockups.
 | `orbiqon-teal` | `#0097B2` | Bridge color: anything pointing to Orbiqon (site, offer, company CTA) |
 | Highlighters | `#F2EC4E` `#DCC5EE` `#C7EC82` `#A9E9DB` `#F6C7DE` | Editorial marks, rotate per slide |
 
+**Identity rule (confirmed by Shazim, 5 Oct 2026):**
+**@shazimbuilds = black + orange. Orbiqon = black + teal.** Teal appears in
+personal content *only* on elements that point at Orbiqon (the offer, the site,
+a company CTA). Never mix the two as decoration.
+
 Accent decision (deliberate): **orange stays primary** for @shazimbuilds —
 every AI account is blue/purple; orange owns the feed and already marks your
 existing posts. Orbiqon teal appears exactly when the content points at the
@@ -116,8 +121,15 @@ The gap between "80% matching" and premium is never layout — it's these:
   fine for flat icons and background washes.
 - **Backgrounds**: generated paintings must reserve negative space for type
   ("generous empty space in the upper half" in the prompt).
-- **Photos**: transparent cutouts in `shazim/`, always composited with glow +
-  silhouette drop-shadow + warm grade (built into the icon-grid cover).
+- **Photos of Shazim**: use `shazim/main.png` (head-and-shoulders, black blazer
+  over black crew-neck, bright office). `shazim/one.png` is **retired** — do not
+  use it. Composite with glow + silhouette drop-shadow + warm grade (built into
+  the icon-grid cover).
+- **Covers are attention-first, not face-first.** A cover's job is to stop the
+  scroll: a bold claim, a striking visual, a number, a mockup, the capy
+  character — whatever is strongest for that post. Shazim's face is one option
+  among several, not a fixture. Vary it across the feed; a grid of near-identical
+  face-covers reads as a template, which is the thing we're avoiding.
 - **Never** one-shot a full slide in an image model — text and logos always come out wrong.
 
 ## 6. Per-template mapping
