@@ -221,6 +221,37 @@ Microsoft Copilot mark; never use githubcopilot for Microsoft 365).
 Semantic pass/fail colours (`--ok` / `--bad`) are only for check outcomes —
 never decoration. Prices: JetBrains Mono, tabular-nums.
 
+## 8. slack-case — client case study told inside Slack
+
+Cool white "product" ground with a faint dot grid, Cal Sans + Manrope, Lato
+inside the Slack mockups (Slack's real UI face). Orange = personal accent; teal
+= anything Orbiqon built (bot avatar, "built by Orbiqon" chip). Slack windows
+use `zoom` to fill the slide (1.24, or 1.12 with the aubergine sidebar).
+Logo: `slack-color` = official 4-colour mark (fills preserved). Post: slack-studio.
+
+```json
+"cover": { "kicker": "case study · client", "big": "22",
+           "title": "workflows.<br>…<br><span class='m'>muted line</span>",
+           "logos": [ { "icon": "slack-color" }, { "icon": "n8n", "color": "#EA4B71" } ] },
+"slides": [
+ { "type": "agents", "cards": [ { "icon": "openai", "color": "#111418", "name": "…", "note": "…" } ] },
+ { "type": "before", "rows": ["…","…"], "tag": "by hand" },
+ { "type": "grid", "count": 22, "highlight": { "0": "news", "1": "ideas" } },
+ { "type": "slack", "window": { "channel": "news-in", "members": "…",
+     "sidebar": { "workspace": "…", "channels": [..], "bold": [..] } (optional),
+     "messages": [ { "time": "8:02 AM", "text": "<b>…</b>",
+        "atts": [ { "title": "…", "lines": ["…","<em>Why:</em> …"], "color": "#ECB22E" } ],
+        "list": [ { "t": "…", "src": "tag" } ],
+        "buttons": [ { "t": "30s" }, { "t": "60s", "on": true } ],
+        "ok": ["green confirmation line"] } ] } },
+ { "type": "stack", "logos": [..], "stat": "Hundreds<br>of hours", "cap": "…", "credit": "built by Orbiqon" } ],
+"cta": { "kicker": "…", "rules": [ { "b": "Fixed workflows", "s": "for repeat work" },
+         { "b": "Agents", "s": "…", "agent": true } ], "q": "… <em>…</em>?" }
+```
+
+Never put real people's names in mock messages; never invent client metrics —
+every number in a case study must come from the brief.
+
 ---
 
 ## Building a NEW template (the process that works)

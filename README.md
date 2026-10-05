@@ -34,7 +34,7 @@ posts/<slug>/
     linkedin.pdf     LinkedIn document post, exact slide size
 ```
 
-## Templates (6)
+## Templates (8)
 
 | Template | Style | Use for |
 |---|---|---|
@@ -44,6 +44,8 @@ posts/<slug>/
 | level-series | landscape bg, serif levels, real UI mockups | mastery ladders |
 | agent-recipes | floating card, WHEN/DO/SEND workflows | system recipes |
 | meme | generated character photo + composited text/logos | the capy founder |
+| model-cards | black spec sheet, model/price cards, charts, UI checks | reference posts |
+| slack-case | cool white, real Slack-style mockups | client case studies |
 
 ## Video posts
 
