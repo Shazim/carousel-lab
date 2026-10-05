@@ -148,7 +148,19 @@ footer brand bar (burst + handle) on every slide.
          "icons": ["gmail","…×6"], "body": "…", "pill": "Comment AGENTS" }
 ```
 
-Agent rows: exactly 1 WHEN, 2 DO, 1 SEND reads best. Body ≤ 2 lines.
+Agent rows: exactly 1 WHEN, 2 DO, 1 SEND reads best. Body ≤ 2 lines, title 1 line.
+
+Extensions (added for launch-checks):
+- Stages also accept `TRY` / `FAIL` / `FIX` / `PASS` (check-style workflows).
+- `"accent": { "main", "dark", "soft", "text" }` swaps the Claude clay for any
+  accent — use brand orange `#D9620B / #B9530A / #F6DCC6 / #9C4508` for
+  non-Claude topics.
+- `connectsLabel` (default "connects"); chips may omit `icon`; any icon may set `color`.
+- `try` is optional; `tryLabel` (default "Try:"), `tryRaw: true` drops the quotes.
+- Cover: `kicker`, `big` (giant number, `<span class='tl'>~</span>` for a small
+  tilde), `icons: [{icon,color}]` + `caption` replace the burst tile.
+- `"type": "scan"` — `nums: [{n,t,hot}]` + `builders: [{icon?,label,color?}]`.
+- `"type": "matrix"` — `cols: ["$5K","$15K"]`, `rows: [..]` → off/on toggle table.
 
 ## 6. meme — single image + composited caption/logos/handle
 

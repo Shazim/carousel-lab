@@ -47,8 +47,12 @@ Then:
    logos with an image model** — garbled text and fake logos are the #1
    credibility killer for this audience.
 
-2. **Template decision.** Check TEMPLATES.md — reuse an existing template if the
-   layout matches; otherwise build a new one in `templates/` following the
+2. **Template decision.** First list the templates of the last 2–3 posts
+   (check post.json `template` + `scheduled`) — **never use the same template on
+   consecutive posts** unless it's a deliberate series; back-to-back identical
+   looks read as a template in the grid. Then check TEMPLATES.md — reuse an
+   existing template if the layout matches (extend it with a new slide type
+   before forking); otherwise build a new one in `templates/` following the
    existing pattern (data-driven `build(post, {root}) -> {name: html}` module,
    design tokens from BRAND.md, 1080×1350). Tell the user which you chose.
 
@@ -164,7 +168,7 @@ full draft exists, and iterate on their feedback. They review on their phone.
 | capy-team-meme | meme | draft — ready to post |
 | expensive-employee | none (video) | draft — guide written, needs hosting for AUTOMATE |
 | ai-model-picker | model-cards (dark) | ready — scheduled Wed 14 Oct; re-check prices first |
-| launch-checks | model-cards (dark) | ready — scheduled Wed 21 Oct; DM CTA |
+| launch-checks | agent-recipes (cream, orange accent) | ready — scheduled Wed 21 Oct; DM CTA |
 
 Repo: `git@github.com:Shazim/carousel-lab.git` (branch `main`). Commit after
 each work session. `node_modules/` and `posts/*/build/` are gitignored.

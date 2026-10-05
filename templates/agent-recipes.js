@@ -57,6 +57,7 @@ const CSS = `
   .stage { min-width:96px; text-align:center; border-radius:999px; padding:8px 0;
            font-size:19px; font-weight:800; letter-spacing:1.2px; color:#fff; }
   .s-when { background:#B65C38; } .s-do { background:#A49B8C; } .s-send { background:#3E8E5B; }
+  .s-fail { background:#C2453A; }
   .aic { width:46px; height:46px; background:#fff; border-radius:12px; box-shadow:${SH_SM};
          display:flex; align-items:center; justify-content:center; flex:none; }
   .aic .lg { width:26px; height:26px; }
@@ -94,6 +95,46 @@ const CSS = `
   .tgl { width:66px; height:36px; border-radius:999px; background:#3E8E5B; position:relative; }
   .tgl::after { content:''; position:absolute; right:4px; top:4px; width:28px; height:28px;
                 border-radius:50%; background:#fff; }
+
+  /* cover extras */
+  .ckick { color:${CLAY}; font-size:24px; font-weight:800; letter-spacing:5px;
+           text-transform:uppercase; margin-bottom:28px; }
+  .cicons { display:flex; gap:18px; margin-top:64px; }
+  .cicons .aic { width:96px; height:96px; border-radius:26px; }
+  .cicons .aic .lg { width:50px; height:50px; }
+  .ccap { font-size:30px; font-weight:700; color:${MUTE}; margin-top:26px; }
+  .cbig { font-family:'Cal Sans',sans-serif; font-size:250px; line-height:.9; letter-spacing:-6px;
+          color:${CLAY}; margin-bottom:22px; }
+  .cbig .tl { font-size:.38em; vertical-align:.7em; margin-right:8px; letter-spacing:0; opacity:.75; }
+  .ct2.sm { font-size:78px; line-height:1.12; }
+
+  /* scan */
+  .scan { display:flex; flex-direction:column; gap:20px; margin-top:44px; }
+  .snum { background:#FBF8F1; border:1.5px solid #E9E3D5; border-radius:26px; padding:30px 36px;
+          display:flex; align-items:baseline; gap:26px; box-shadow:${SH_SM}; }
+  .snum.hot { border-color:${CLAY}; background:#FCF1E7; }
+  .snum b { font-family:'Cal Sans',sans-serif; font-weight:400; font-size:88px; line-height:1;
+            min-width:350px; }
+  .snum.hot b { color:${CLAY}; }
+  .snum span { font-size:30px; font-weight:700; color:${MUTE}; }
+  .snum.hot span { color:${INK}; }
+  .builders { display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:30px; }
+  .builders .bl { font-size:22px; font-weight:800; letter-spacing:3px; text-transform:uppercase;
+                  color:${CLAY}; margin-right:6px; }
+
+  /* matrix (toggle comparison) */
+  .matrix { background:#FBF8F1; border-radius:26px; margin-top:40px; padding:8px 30px 10px;
+            border:1.5px solid #E9E3D5; box-shadow:${SH_MD}; }
+  .mrow { display:grid; grid-template-columns:1fr 130px 130px; align-items:center;
+          padding:20px 0; border-bottom:1.5px solid #EFE9DC; }
+  .mrow:last-child { border-bottom:none; }
+  .mrow.mh { padding:18px 0 14px; }
+  .mrow.mh span { font-family:'Cal Sans',sans-serif; font-size:40px; text-align:center; color:${MUTE}; }
+  .mrow.mh span.hi { color:${CLAY}; }
+  .mrow .t { font-size:30px; font-weight:600; }
+  .mrow .c { display:flex; justify-content:center; }
+  .tgl.off { background:#D8D1C3; }
+  .tgl.off::after { right:auto; left:4px; }
 
   .foot { position:absolute; left:64px; right:64px; bottom:44px; }
   .foot .line { height:1.5px; background:#DDD6C8; margin-bottom:26px; }
@@ -135,18 +176,23 @@ function counter(i, total) {
   return `<div class="counter">${String(i).padStart(2, '0')} / ${total}</div>`;
 }
 
+function icon(name, color) {
+  return `<span class="lg"${color ? ` style="color:${color}"` : ''}>${loadIcon(name)}</span>`;
+}
+
 function chips(list) {
   return `<div class="chips">${list.map((c) =>
-    `<span class="chip"><span class="lg">${loadIcon(c.icon)}</span>${c.label}</span>`).join('')}</div>`;
+    `<span class="chip">${c.icon ? icon(c.icon, c.color) : ''}${c.label}</span>`).join('')}</div>`;
 }
 
 function agentWindow(a) {
-  const stage = { WHEN: 's-when', DO: 's-do', SEND: 's-send' };
+  const stage = { WHEN: 's-when', DO: 's-do', SEND: 's-send',
+                  TRY: 's-when', FAIL: 's-fail', FIX: 's-do', PASS: 's-send' };
   return `<div class="agent">
     <div class="ahead"><span class="dots"><i style="background:#D97C55"></i><i style="background:#E0B96A"></i><i style="background:#7FB98A"></i></span>${a.name} · ${a.status}</div>
     <div class="arows">${a.rows.map((r) => `<div class="arow">
       <span class="stage ${stage[r.s]}">${r.s}</span>
-      <span class="aic"><span class="lg">${loadIcon(r.icon)}</span></span>
+      <span class="aic">${icon(r.icon, r.color)}</span>
       <span class="t">${r.t}</span></div>`).join('')}</div>
   </div>`;
 }
@@ -161,9 +207,14 @@ function build(post, { root }) {
   if (post.cover) {
     pages[`${pad(++n)}-cover`] = page(`<div class="card">
       <div class="center">
-        <div class="ct1">${post.cover.line1}</div>
-        <div class="ct2">${post.cover.line2}</div>
-        <div class="apptile">${BURST('#fff')}</div>
+        ${post.cover.kicker ? `<div class="ckick">${post.cover.kicker}</div>` : ''}
+        ${post.cover.big ? `<div class="cbig">${post.cover.big}</div>` : ''}
+        ${post.cover.line1 ? `<div class="ct1">${post.cover.line1}</div>` : ''}
+        <div class="ct2 ${post.cover.big ? 'sm' : ''}">${post.cover.line2}</div>
+        ${post.cover.icons
+          ? `<div class="cicons">${post.cover.icons.map((i) => `<span class="aic">${icon(i.icon, i.color)}</span>`).join('')}</div>
+             ${post.cover.caption ? `<div class="ccap">${post.cover.caption}</div>` : ''}`
+          : `<div class="apptile">${BURST('#fff')}</div>`}
       </div>${foot(H)}</div>`);
   }
 
@@ -177,14 +228,27 @@ function build(post, { root }) {
     } else if (s.type === 'agent') {
       inner = `<div class="kicker">${s.kicker}</div><div class="title">${s.title}</div>
         <div class="body">${s.body}</div>
-        <div class="clabel">connects</div>${chips(s.connects)}
+        <div class="clabel">${s.connectsLabel || 'connects'}</div>${chips(s.connects)}
         ${agentWindow(s.agent)}
-        <div class="try">Try: “${s.try}”</div>`;
+        ${s.try ? `<div class="try">${s.tryLabel || 'Try:'} ${s.tryRaw ? s.try : `“${s.try}”`}</div>` : ''}`;
     } else if (s.type === 'recipe') {
       inner = `<div class="kicker">${s.kicker}</div><div class="title">${s.title}</div>
         <div class="body">${s.body}</div>
         <div class="code">${s.lines.map((l) => `<div><b>${l.k}:</b> ${l.v}</div>`).join('')}</div>
         <div class="note">${s.note}</div>`;
+    } else if (s.type === 'scan') {
+      inner = `<div class="kicker">${s.kicker}</div><div class="title">${s.title}</div>
+        <div class="body">${s.body}</div>
+        <div class="scan">${s.nums.map((x) => `<div class="snum ${x.hot ? 'hot' : ''}"><b>${x.n}</b><span>${x.t}</span></div>`).join('')}</div>
+        <div class="builders"><span class="bl">built on</span>${chips(s.builders).replace('<div class="chips">', '').replace(/<\/div>$/, '')}</div>`;
+    } else if (s.type === 'matrix') {
+      inner = `<div class="kicker">${s.kicker}</div><div class="title">${s.title}</div>
+        <div class="body">${s.body}</div>
+        <div class="matrix">
+          <div class="mrow mh"><span></span><span>${s.cols[0]}</span><span class="hi">${s.cols[1]}</span></div>
+          ${s.rows.map((r) => `<div class="mrow"><span class="t">${r}</span>
+            <span class="c"><span class="tgl off"></span></span><span class="c"><span class="tgl"></span></span></div>`).join('')}
+        </div>`;
     } else if (s.type === 'unlock') {
       inner = `<div class="kicker">${s.kicker}</div><div class="title">${s.title}</div>
         <div class="body">${s.body}</div>
@@ -202,10 +266,19 @@ function build(post, { root }) {
       <div class="center">
         <div class="cta1">${post.cta.line1}</div>
         <div class="cta2">${post.cta.line2}</div>
-        <div class="iconrow">${post.cta.icons.map((i) => `<span class="aic"><span class="lg">${loadIcon(i)}</span></span>`).join('')}</div>
+        <div class="iconrow">${post.cta.icons.map((i) => typeof i === 'string'
+          ? `<span class="aic"><span class="lg">${loadIcon(i)}</span></span>`
+          : `<span class="aic">${icon(i.icon, i.color)}</span>`).join('')}</div>
         <div class="ctabody">${post.cta.body}</div>
         <div class="ctapill">${post.cta.pill}</div>
       </div>${foot(H)}</div>`);
+  }
+  if (post.accent) {
+    const A = post.accent;
+    const swap = { '#C96442': A.main, '#B65C38': A.dark, '#F2DACB': A.soft, '#A34F2C': A.text };
+    for (const k of Object.keys(pages)) {
+      for (const [from, to] of Object.entries(swap)) if (to) pages[k] = pages[k].split(from).join(to);
+    }
   }
   return pages;
 }

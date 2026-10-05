@@ -15,13 +15,33 @@
     "comments": null,
     "follows": null
   },
-  "notes": "Content from Shazim's brief; sources in research.md. Check 2 nuance added (publishable keys are fine, secret/service-role keys never) — accuracy fix. CTA is a DM, no keyword guide.",
-  "template": "model-cards",
+  "notes": "Reworked from model-cards to agent-recipes (cream) so it doesn't repeat the ai-model-picker look the week before. Accent overridden to brand orange. Check 2 nuance kept (publishable keys fine). Sources in research.md.",
+  "template": "agent-recipes",
+  "accent": {
+    "main": "#D9620B",
+    "dark": "#B9530A",
+    "soft": "#F6DCC6",
+    "text": "#9C4508"
+  },
   "cover": {
     "kicker": "before you launch",
     "big": "<span class='tl'>~</span>5,000",
-    "title": "AI-built apps were found <em>leaking data</em>",
-    "sub": "Four checks to run on yours first."
+    "line2": "AI-built apps found<br>leaking data",
+    "icons": [
+      {
+        "icon": "googlechrome"
+      },
+      {
+        "icon": "github"
+      },
+      {
+        "icon": "supabase"
+      },
+      {
+        "icon": "stripe"
+      }
+    ],
+    "caption": "4 checks to run on yours first →"
   },
   "slides": [
     {
@@ -29,7 +49,7 @@
       "slug": "what-happened",
       "kicker": "What happened",
       "title": "One scan. 5,000 leaks.",
-      "body": "A May scan of apps built on AI app builders found thousands exposing sensitive data.",
+      "body": "April: an access flaw hit apps built on Lovable. May: a scan of AI-built apps found thousands leaking.",
       "nums": [
         {
           "n": "380,000",
@@ -41,158 +61,281 @@
           "hot": true
         }
       ],
-      "chips": [
-        "Lovable",
-        "Replit",
-        "Base44",
-        "and others"
+      "builders": [
+        {
+          "icon": "lovable",
+          "label": "Lovable",
+          "color": "#FF5470"
+        },
+        {
+          "icon": "replit",
+          "label": "Replit"
+        },
+        {
+          "label": "Base44 & others"
+        }
       ]
     },
     {
-      "type": "mock",
+      "type": "agent",
       "slug": "check1-ids",
       "kicker": "Check 1",
-      "title": "Change the ID in the address bar",
-      "body": "Log in as one user, then swap the ID for another user's.",
-      "mock": {
-        "kind": "urlbar",
-        "title": "logged in as alex",
-        "who": "you, as alex, change one number:",
-        "url": "yourapp.com/invoices/<span class='id'>1043</span>",
-        "outcomes": [
+      "title": "Swap the ID in the URL",
+      "body": "Log in as one user, then change the ID in the address bar to another user's.",
+      "connectsLabel": "you'll use",
+      "connects": [
+        {
+          "icon": "googlechrome",
+          "label": "Your browser"
+        },
+        {
+          "label": "2 test accounts"
+        }
+      ],
+      "agent": {
+        "name": "id swap",
+        "status": "in your browser",
+        "rows": [
           {
-            "ok": false,
-            "t": "Sam's invoice loads — stop and fix it"
+            "s": "TRY",
+            "icon": "googlechrome",
+            "t": "log in as A, change the ID in the URL"
           },
           {
-            "ok": true,
-            "t": "Access denied — you're good"
+            "s": "FAIL",
+            "icon": "googlechrome",
+            "t": "user B's data loads — stop here"
+          },
+          {
+            "s": "FIX",
+            "icon": "supabase",
+            "t": "check who owns each record, server-side"
+          },
+          {
+            "s": "PASS",
+            "icon": "googlechrome",
+            "t": "you get “access denied”"
           }
         ]
       },
-      "note": "This was the flaw that hit Lovable in April."
+      "try": "/invoices/1042 → /invoices/1043",
+      "tryRaw": true
     },
     {
-      "type": "mock",
+      "type": "agent",
       "slug": "check2-secrets",
       "kicker": "Check 2",
-      "title": "No secrets in the browser",
-      "body": "Search the code that runs in the browser for API keys and secrets. There should be none.",
-      "mock": {
-        "kind": "terminal",
-        "title": "terminal",
-        "lines": [
-          "<span class='p'>$</span> grep -rE \"sk_live_|service_role|_SECRET\" ./dist",
-          "<span class='d'># searching the built browser bundle…</span>",
-          "<span class='g'>✓ no matches</span>"
+      "title": "Hide your secret keys",
+      "body": "Search the code that runs in the browser for secret keys. Publishable keys are fine.",
+      "connectsLabel": "you'll use",
+      "connects": [
+        {
+          "icon": "github",
+          "label": "Your code"
+        },
+        {
+          "icon": "stripe",
+          "label": "Stripe keys"
+        },
+        {
+          "icon": "supabase",
+          "label": "Supabase keys"
+        }
+      ],
+      "agent": {
+        "name": "secret scan",
+        "status": "in your code",
+        "rows": [
+          {
+            "s": "TRY",
+            "icon": "github",
+            "t": "search the browser bundle for keys"
+          },
+          {
+            "s": "FAIL",
+            "icon": "stripe",
+            "t": "a secret key shows up"
+          },
+          {
+            "s": "FIX",
+            "icon": "supabase",
+            "t": "move it to the server, then rotate it"
+          },
+          {
+            "s": "PASS",
+            "icon": "github",
+            "t": "only publishable keys left"
+          }
         ]
       },
-      "note": "Publishable keys (like Supabase's anon key) are fine. <b>Secret and service-role keys, never.</b>"
+      "tryLabel": "$",
+      "try": "grep -rE \"sk_live_|service_role\" ./dist",
+      "tryRaw": true
     },
     {
-      "type": "mock",
+      "type": "agent",
       "slug": "check3-rls",
       "kicker": "Check 3",
       "title": "Lock every table",
       "body": "On Supabase, turn on row level security for every table — then test it with a second account.",
-      "mock": {
-        "kind": "tables",
-        "title": "database · tables",
+      "connectsLabel": "you'll use",
+      "connects": [
+        {
+          "icon": "supabase",
+          "label": "Supabase"
+        },
+        {
+          "label": "2nd test account"
+        }
+      ],
+      "agent": {
+        "name": "table rules",
+        "status": "in supabase",
         "rows": [
           {
-            "name": "profiles",
-            "on": true
+            "s": "TRY",
+            "icon": "supabase",
+            "t": "open each table's RLS setting"
           },
           {
-            "name": "invoices",
-            "on": true
+            "s": "FAIL",
+            "icon": "supabase",
+            "t": "a table says “RLS disabled”"
           },
           {
-            "name": "messages",
-            "on": false
-          }
-        ],
-        "sql": "<b>alter table</b> messages <b>enable row level security</b>;"
-      }
-    },
-    {
-      "type": "mock",
-      "slug": "check4-payments",
-      "kicker": "Check 4",
-      "title": "Break the payment on purpose",
-      "body": "In test mode, double-click pay and drop your connection mid-payment.",
-      "mock": {
-        "kind": "payment",
-        "title": "checkout · test mode",
-        "button": "Pay $49",
-        "outcomes": [
-          {
-            "t": "Double-clicked pay",
-            "r": "→ 1 charge"
+            "s": "FIX",
+            "icon": "supabase",
+            "t": "enable RLS, add a policy per table"
           },
           {
-            "t": "Connection dropped mid-payment",
-            "r": "→ 1 charge"
+            "s": "PASS",
+            "icon": "supabase",
+            "t": "user 2 can't see user 1's rows"
           }
         ]
       },
-      "note": "<b>One charge, every time.</b> Anything else is a refund waiting to happen."
+      "tryLabel": "SQL:",
+      "try": "alter table messages enable row level security;",
+      "tryRaw": true
     },
     {
-      "type": "mock",
+      "type": "agent",
+      "slug": "check4-payments",
+      "kicker": "Check 4",
+      "title": "Break your own checkout",
+      "body": "In test mode, double-click pay and drop your connection mid-payment.",
+      "connectsLabel": "you'll use",
+      "connects": [
+        {
+          "icon": "stripe",
+          "label": "Stripe test mode"
+        },
+        {
+          "label": "your checkout"
+        }
+      ],
+      "agent": {
+        "name": "payment test",
+        "status": "in test mode",
+        "rows": [
+          {
+            "s": "TRY",
+            "icon": "stripe",
+            "t": "double-click pay, kill the connection"
+          },
+          {
+            "s": "FAIL",
+            "icon": "stripe",
+            "t": "two charges for one order"
+          },
+          {
+            "s": "FIX",
+            "icon": "stripe",
+            "t": "an idempotency key on every payment"
+          },
+          {
+            "s": "PASS",
+            "icon": "stripe",
+            "t": "one charge, every time"
+          }
+        ]
+      },
+      "tryLabel": "Test card:",
+      "try": "4242 4242 4242 4242 · any future date · any CVC",
+      "tryRaw": true
+    },
+    {
+      "type": "agent",
       "slug": "bonus-backups",
       "kicker": "Bonus",
       "title": "Restore a backup — once",
       "body": "Before you ever need it. A backup you've never restored is a hope, not a backup.",
-      "mock": {
-        "kind": "steps",
-        "title": "backups",
-        "steps": [
+      "connectsLabel": "you'll use",
+      "connects": [
+        {
+          "icon": "supabase",
+          "label": "Supabase backups"
+        },
+        {
+          "label": "a test project"
+        }
+      ],
+      "agent": {
+        "name": "restore drill",
+        "status": "in a test project",
+        "rows": [
           {
-            "t": "Pick the latest backup",
-            "r": "2 hours ago"
+            "s": "TRY",
+            "icon": "supabase",
+            "t": "restore into a test project"
           },
           {
-            "t": "Restore it into a test project",
-            "r": "not production"
+            "s": "FAIL",
+            "icon": "supabase",
+            "t": "it errors, or data's missing"
           },
           {
-            "t": "Log in and click around",
-            "r": "✓ it works",
-            "done": true
+            "s": "FIX",
+            "icon": "supabase",
+            "t": "fix backups before you need them"
+          },
+          {
+            "s": "PASS",
+            "icon": "supabase",
+            "t": "the app runs on the restored copy"
           }
         ]
       }
     },
     {
-      "type": "compare",
+      "type": "matrix",
       "slug": "5k-vs-15k",
       "kicker": "Why it costs more",
       "title": "$5K build vs $15K build",
       "body": "These checks are most of what the extra money buys.",
-      "options": [
-        {
-          "amt": "$5K",
-          "lbl": "works in the demo"
-        },
-        {
-          "amt": "$15K",
-          "lbl": "holds up when someone tries to break it",
-          "pick": true,
-          "ticks": [
-            "access checks",
-            "no exposed secrets",
-            "database rules",
-            "safe payments",
-            "tested backups"
-          ]
-        }
+      "cols": [
+        "$5K",
+        "$15K"
+      ],
+      "rows": [
+        "Access checks",
+        "No secrets in the browser",
+        "Database rules",
+        "Safe payments",
+        "Tested backups"
       ]
     }
   ],
   "cta": {
-    "q": "Not sure what yours <em>would show</em>?",
-    "sub": "Send me a message and I'll tell you where I'd look first.",
+    "line1": "Not sure what yours",
+    "line2": "would show?",
+    "icons": [
+      "googlechrome",
+      "github",
+      "supabase",
+      "stripe"
+    ],
+    "body": "Send me a message and I'll tell you where I'd look first.",
     "pill": "DM @shazimbuilds"
   }
 }
