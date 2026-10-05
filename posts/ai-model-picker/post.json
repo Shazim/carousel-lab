@@ -1,0 +1,98 @@
+{
+  "slug": "ai-model-picker",
+  "title": "Which AI Model for Which Job",
+  "topic": "October 2026 model picker: three rules, real prices, worked cost example",
+  "handle": "@shazimbuilds",
+  "keyword": null,
+  "guideUrl": null,
+  "status": "draft",
+  "scheduled": "2026-10-14",
+  "posted": null,
+  "results": { "reach": null, "saves": null, "shares": null, "comments": null, "follows": null },
+  "notes": "Prices checked 5 Oct 2026, USD per million tokens (input/output). Research + sources in research.md. Every number comes from Shazim's research brief — do not alter without re-checking sources. Date stamp on cover protects the post as prices change.",
+  "template": "model-cards",
+  "cover": {
+    "kicker": "september 2026 · 10+ new models",
+    "title": "Which AI for <em>which job</em>",
+    "sub": "Three rules that survive every launch week — with October's names and prices in each slot.",
+    "logos": ["claude", "openai", "googlegemini", "copilot"],
+    "stamp": "prices checked 5 oct 2026 · usd per million tokens (in / out)"
+  },
+  "slides": [
+    {
+      "type": "cards", "slug": "rule1-thinking", "kicker": "Rule 1",
+      "title": "A flagship for thinking",
+      "body": "Proposals, contracts, hard decisions — the work where being wrong is expensive.",
+      "cards": [
+        { "icon": "claude", "name": "Claude Opus 5.5", "note": "at or near the top of the main rankings", "price": "$4 / $20", "pick": true },
+        { "icon": "openai", "name": "GPT-6 Astra", "note": "more than twice the price", "price": "$10 / $50" }
+      ]
+    },
+    {
+      "type": "cards", "slug": "rule2-sorting", "kicker": "Rule 2",
+      "title": "A cheap, fast model for sorting",
+      "body": "Tagging emails, summarising calls, reading invoices — thousands of times a month.",
+      "cards": [
+        { "icon": "openai", "name": "GPT-6.1 Sol", "note": "a fifth of Astra's price", "price": "$2 / $10" },
+        { "icon": "googlegemini", "name": "Gemini 3.8 Flash", "note": "cheapest of the three", "price": "$0.75 / $3.75", "priceNote": "UNTIL 31 DEC 2026", "pick": true }
+      ]
+    },
+    {
+      "type": "chart", "slug": "money", "kicker": "What that means in money",
+      "title": "Sorting 3,000 emails a month",
+      "body": "Same job. Same volume. Three bills.",
+      "bars": [
+        { "label": "GPT-6 Astra", "value": 30, "display": "~$30" },
+        { "label": "GPT-6.1 Sol", "value": 6, "display": "~$6" },
+        { "label": "Gemini 3.8 Flash", "value": 2, "display": "~$2", "win": true }
+      ],
+      "foot": "Rough estimate, about 1,000 tokens per email."
+    },
+    {
+      "type": "cards", "slug": "rule3-where", "kicker": "Rule 3",
+      "title": "Use the AI that lives where your work is",
+      "body": "A model you have to leave your workflow to reach is a model you stop using by Thursday.",
+      "cards": [
+        { "icon": "googlegemini", "name": "Gemini", "where": "Gmail · Docs" },
+        { "icon": "copilot", "name": "Copilot", "where": "Microsoft 365" }
+      ]
+    },
+    {
+      "type": "cards", "slug": "building-software", "kicker": "Building software",
+      "title": "Not the flagship",
+      "body": "Released 28 September. Within about 2 points of Opus 5.5 on coding tests, at half the price.",
+      "cards": [
+        { "icon": "claude", "name": "Claude Sonnet 5.5", "note": "the coding default", "price": "$2 / $10", "pick": true }
+      ]
+    },
+    {
+      "type": "cards", "slug": "motion-design", "kicker": "Motion graphics & design",
+      "title": "Here the flagship earns it",
+      "body": "It writes the animation as code and renders the finished video. Designers call motion its biggest jump.",
+      "cards": [
+        { "icon": "claude", "name": "Claude Opus 5.5", "note": "writes the animation, renders the video", "price": "$4 / $20", "pick": true }
+      ]
+    },
+    {
+      "type": "stat", "slug": "phone-calls", "kicker": "Phone calls",
+      "title": "A speech model, not a text one",
+      "body": "One that listens and talks in a single step, instead of transcribing, thinking, then speaking.",
+      "stat": "~0.5s", "cap": "where replies now land"
+    },
+    {
+      "type": "flow", "slug": "mix-them", "kicker": "The actual strategy",
+      "title": "Mix them",
+      "body": "Nobody picks one model. You build a chain.",
+      "steps": [
+        { "t": "Everything arrives", "s": "emails, calls, invoices, messages" },
+        { "t": "The cheap model sorts", "s": "tags, summarises, throws out the noise" },
+        { "t": "The flagship sees what's left", "s": "only the work that needs judgment", "hot": true }
+      ],
+      "closer": "Names and prices change every month. <b>These rules don't.</b>"
+    }
+  ],
+  "cta": {
+    "q": "Which AI subscription are you paying for that you <em>barely use</em>?",
+    "sub": "@shazimbuilds"
+  }
+}
