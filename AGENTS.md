@@ -169,6 +169,7 @@ full draft exists, and iterate on their feedback. They review on their phone.
 | expensive-employee | none (video) | draft — guide written, needs hosting for AUTOMATE |
 | ai-model-picker | model-cards (dark) | ready — scheduled Wed 14 Oct; re-check prices first |
 | launch-checks | agent-recipes (cream, orange accent) | ready — scheduled Wed 21 Oct; DM CTA |
+| skills-once | level-series (painted, "Step" pills) | ready — scheduled Wed 28 Oct |
 
 Repo: `git@github.com:Shazim/carousel-lab.git` (branch `main`). Commit after
 each work session. `node_modules/` and `posts/*/build/` are gitignored.

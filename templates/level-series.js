@@ -133,6 +133,19 @@ const CSS = `
   .fcell .lvlpill { font-size:16px; padding:4px 13px; margin:0 0 10px; }
   .fcell .fl { font-size:18.5px; font-weight:700; margin-top:8px; letter-spacing:-.2px; }
 
+  .skick { font-size:23px; font-weight:800; letter-spacing:5px; text-transform:uppercase; color:#B8612A; }
+  .tabs { display:flex; gap:8px; flex-wrap:wrap; margin:-2px 0 20px; }
+  .tab { font-family:-apple-system,'Manrope',sans-serif; font-size:17px; font-weight:700;
+         color:#7D8796; border:1.5px solid #283140; border-radius:9px; padding:5px 12px; }
+  .tab.done { color:#7ED9A2; border-color:#23452F; }
+  .tab.on { background:#E8913D; color:#181207; border-color:#E8913D; }
+  .nrow { display:flex; align-items:center; gap:20px; padding:16px 18px; border-radius:14px; margin:6px 0; }
+  .nrow.hot { background:#1B2230; }
+  .nrow .nt { width:52px; height:52px; border-radius:14px; background:#0A0D12; border:1.5px solid #283140;
+              display:flex; align-items:center; justify-content:center; flex:none; }
+  .nrow .nt span { width:28px; height:28px; display:flex; color:#D7DCE3; }
+  .nrow b { font-family:-apple-system,'Manrope',sans-serif; font-size:26px; color:#E8EBEF; font-weight:600; min-width:150px; }
+  .nrow em { font-style:normal; margin-left:auto; color:#E8913D; font-size:23px; }
   .wm { position:absolute; bottom:32px; left:0; right:0; text-align:center;
         font-family:'Manrope',sans-serif; font-size:21px; font-weight:700;
         letter-spacing:2.5px; color:rgba(34,56,76,.38); z-index:9; }
@@ -214,6 +227,15 @@ const MOCKS = {
   },
   lines(m) { return m.lines.map((l) => `<div style="margin:5px 0">${l}</div>`).join(''); },
   cmdlist(m) { return m.rows.map((r) => `<div class="cmdrow"><b>${r.c}</b><span class="dim">${r.d}</span></div>`).join(''); },
+  names(m) {
+    return m.rows.map((r) => `<div class="nrow ${r.hot ? 'hot' : ''}"><span class="nt"><span>${loadIcon(r.icon)}</span></span>
+      <b>${r.name}</b><em>${r.term}</em></div>`).join('');
+  },
+  skill(m) {
+    const tabs = `<div class="tabs">${m.tabs.map((t, i) =>
+      `<span class="tab ${i === m.active ? 'on' : i < m.active ? 'done' : ''}">${i < m.active ? '✓ ' : ''}${t}</span>`).join('')}</div>`;
+    return tabs + m.lines.map((l) => `<div style="margin:5px 0">${l}</div>`).join('');
+  },
   skilllist(m) { return m.rows.map((r, i) => `<div class="skrow ${i === 0 ? 'hot' : ''}"><b>${r.c}</b><span class="dim">${r.d}</span></div>`).join(''); },
 };
 
@@ -229,15 +251,18 @@ function chips(list, color) {
     ${list.map((c) => `<span class="chip"><i style="background:${color}"></i>${c}</span>`).join('')}</div>`;
 }
 
+let PILL = 'Lvl';
 function levelSlide(s, root) {
   const dark = s.n === 9 ? '#3A3A3A' : s.color;
+  const ident = s.n != null
+    ? `${folder(s.color)}<div class="pillrow"><span class="lvlpill">${PILL} ${s.n}</span><span class="byline">@shazimbuilds</span></div>`
+    : `<div class="pillrow"><span class="skick">${s.kicker || ''}</span><span class="byline">@shazimbuilds</span></div>`;
   const head = `<div class="tblock">
-      ${folder(s.color)}
-      <div class="pillrow"><span class="lvlpill">Lvl ${s.n}</span><span class="byline">@shazimbuilds</span></div>
+      ${ident}
       <div class="title">${s.title}</div>
       <div class="bar" style="background:${dark}"></div>
-      <div class="def">${s.def}</div>
-      <div class="body">${s.body}</div>
+      ${s.def ? `<div class="def">${s.def}</div>` : ''}
+      ${s.body ? `<div class="body">${s.body}</div>` : ''}
       ${s.chips ? chips(s.chips, dark) : ''}
     </div>`;
   const grid = s.logos ? `<div class="grid8">${s.logos.map((l) =>
@@ -264,9 +289,9 @@ function coverSlide(c, root) {
   return `${bg(root, c.bgimg || 'assets/images/lvl-bg-cover.png', 1, 720)}<div class="cover">
     <svg width="52" height="52" viewBox="0 0 24 24" fill="#C96442"><path d="M12 1.5l1.9 7.6L21.5 11l-7.6 1.9L12 20.5l-1.9-7.6L2.5 11l7.6-1.9z"/></svg>
     <div class="ck">${c.kicker}</div>
-    <div class="ct">${c.title}</div>
+    <div class="ct" ${c.titleSize ? `style="font-size:${c.titleSize}px;letter-spacing:-3px"` : ''}>${c.title}</div>
     <div class="frow">${c.levels.map((l, i) => `<div class="fcell">
-      <span class="lvlpill">Lvl ${i + 1}</span><div style="display:flex;justify-content:center">${folder(l.color, 74)}</div><div class="fl">${l.label}</div>
+      <span class="lvlpill">${PILL} ${i + 1}</span><div style="display:flex;justify-content:center">${folder(l.color, 74)}</div><div class="fl">${l.label}</div>
     </div>`).join('')}</div>
   </div><div class="wm onart">@shazimbuilds</div>`;
 }
@@ -289,9 +314,12 @@ function build(post, { root }) {
   const pages = {};
   let n = 0;
   const pad = (x) => String(x).padStart(2, '0');
+  PILL = post.pill || 'Lvl';
   if (post.cover) pages[`${pad(++n)}-cover`] = page(coverSlide(post.cover, root));
   (post.levels || []).forEach((s) => {
-    pages[`${pad(++n)}-lvl${s.n}-${s.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`] = page(levelSlide(s, root));
+    const tag = s.n != null ? `${PILL.toLowerCase()}${s.n}-` : '';
+    const slug = s.slug || s.title.toLowerCase().replace(/<[^>]+>/g, '').replace(/[^a-z0-9]+/g, '-');
+    pages[`${pad(++n)}-${tag}${slug}`] = page(levelSlide(s, root));
   });
   if (post.cta) pages[`${pad(++n)}-cta`] = page(ctaSlide(post.cta, root));
   return pages;

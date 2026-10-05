@@ -1,0 +1,286 @@
+{
+  "slug": "skills-once",
+  "title": "Write Your Business Down Once",
+  "topic": "How to build your first AI Skill (Claude / Gemini Skills, ChatGPT project instructions) — six steps",
+  "handle": "@shazimbuilds",
+  "keyword": null,
+  "guideUrl": null,
+  "status": "draft",
+  "scheduled": "2026-10-28",
+  "posted": null,
+  "results": {
+    "reach": null,
+    "saves": null,
+    "shares": null,
+    "comments": null,
+    "follows": null
+  },
+  "notes": "level-series chosen by rotation (14 Oct model-cards, 21 Oct agent-recipes). Brief's '4 October' date was wrong — corrected in caption from public sources (research.md). Running example: a refund-replies Skill.",
+  "template": "level-series",
+  "pill": "Step",
+  "cover": {
+    "kicker": "How to build your first AI Skill",
+    "title": "Write your business<br>down once",
+    "titleSize": 108,
+    "levels": [
+      {
+        "label": "Task",
+        "color": "#AECBEE"
+      },
+      {
+        "label": "Good",
+        "color": "#AEE3C6"
+      },
+      {
+        "label": "Rules",
+        "color": "#C6DF7F"
+      },
+      {
+        "label": "Examples",
+        "color": "#EFD160"
+      },
+      {
+        "label": "Never",
+        "color": "#EBB54F"
+      },
+      {
+        "label": "Test",
+        "color": "#E8913D"
+      }
+    ]
+  },
+  "levels": [
+    {
+      "slug": "same-idea",
+      "kicker": "First, the name",
+      "color": "#9FC4EC",
+      "title": "Same idea, three names",
+      "def": "saved instructions for one job",
+      "body": "Google and Anthropic call them Skills. In ChatGPT it's project instructions.",
+      "mock": {
+        "type": "names",
+        "title": "one idea",
+        "sub": "· three names",
+        "rows": [
+          {
+            "icon": "claude",
+            "name": "Claude",
+            "term": "Skills"
+          },
+          {
+            "icon": "googlegemini",
+            "name": "Gemini",
+            "term": "Skills — replacing Gems",
+            "hot": true
+          },
+          {
+            "icon": "openai",
+            "name": "ChatGPT",
+            "term": "Project instructions"
+          }
+        ]
+      }
+    },
+    {
+      "n": 1,
+      "title": "Pick one task",
+      "color": "#AECBEE",
+      "def": "the task you explain over and over",
+      "body": "A refund reply, a proposal, a product description. One task per Skill.",
+      "mock": {
+        "type": "skill",
+        "title": "refund-replies",
+        "sub": "· your skill",
+        "tabs": [
+          "task",
+          "good",
+          "rules",
+          "examples",
+          "never",
+          "test"
+        ],
+        "active": 0,
+        "lines": [
+          "<span class='dim'>---</span>",
+          "<span class='cy'>name:</span> refund-replies",
+          "<span class='cy'>description:</span> use when a customer asks for a refund",
+          "<span class='dim'>---</span>"
+        ]
+      }
+    },
+    {
+      "n": 2,
+      "title": "Define good",
+      "color": "#AEE3C6",
+      "align": "right",
+      "def": "describe what good looks like",
+      "body": "Two or three sentences. If you can't describe it, the AI can't hit it.",
+      "mock": {
+        "type": "skill",
+        "title": "refund-replies",
+        "sub": "· your skill",
+        "tabs": [
+          "task",
+          "good",
+          "rules",
+          "examples",
+          "never",
+          "test"
+        ],
+        "active": 1,
+        "lines": [
+          "<span class='org'>## What good looks like</span>",
+          "A short, calm reply. Yes or no in the first line,",
+          "one sentence on why, then the exact next step."
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "title": "Set the rules",
+      "color": "#C6DF7F",
+      "mockPos": "top",
+      "def": "list your rules",
+      "body": "Tone, length, and what it must always include.",
+      "mock": {
+        "type": "skill",
+        "title": "refund-replies",
+        "sub": "· your skill",
+        "tabs": [
+          "task",
+          "good",
+          "rules",
+          "examples",
+          "never",
+          "test"
+        ],
+        "active": 2,
+        "lines": [
+          "<span class='org'>## Rules</span>",
+          "<span class='dim'>-</span> warm and plain, no corporate filler",
+          "<span class='dim'>-</span> under 120 words",
+          "<span class='dim'>-</span> always include the order number and timeline"
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "title": "Show examples",
+      "color": "#EFD160",
+      "def": "paste three real examples",
+      "body": "Ones you were happy with. Examples teach your tone faster than rules.",
+      "mock": {
+        "type": "skill",
+        "title": "refund-replies",
+        "sub": "· your skill",
+        "tabs": [
+          "task",
+          "good",
+          "rules",
+          "examples",
+          "never",
+          "test"
+        ],
+        "active": 3,
+        "lines": [
+          "<span class='org'>## Examples</span>",
+          "<span class='dim'>&lt;example&gt;</span> Hi Priya — yes, refunded today…",
+          "<span class='dim'>&lt;example&gt;</span> Hi Tom — we can't refund this one, but…",
+          "<span class='dim'>&lt;example&gt;</span> …your third real reply"
+        ]
+      }
+    },
+    {
+      "n": 5,
+      "title": "Draw the lines",
+      "color": "#EBB54F",
+      "align": "right",
+      "def": "list what it must never do",
+      "body": "Promise dates, quote prices, use words you'd never use.",
+      "mock": {
+        "type": "skill",
+        "title": "refund-replies",
+        "sub": "· your skill",
+        "tabs": [
+          "task",
+          "good",
+          "rules",
+          "examples",
+          "never",
+          "test"
+        ],
+        "active": 4,
+        "lines": [
+          "<span class='org'>## Never</span>",
+          "<span class='dim'>-</span> promise a delivery date",
+          "<span class='dim'>-</span> quote a price or a discount",
+          "<span class='dim'>-</span> say \"unfortunately\" or \"per our policy\""
+        ]
+      }
+    },
+    {
+      "n": 6,
+      "title": "Save and test",
+      "color": "#E8913D",
+      "mockPos": "top",
+      "def": "save it, then test it on a real case",
+      "body": "A Skill in Claude or Gemini. Project instructions in ChatGPT.",
+      "mock": {
+        "type": "skill",
+        "title": "testing it",
+        "sub": "· on a real case",
+        "tabs": [
+          "task",
+          "good",
+          "rules",
+          "examples",
+          "never",
+          "test"
+        ],
+        "active": 5,
+        "lines": [
+          "<span class='org'>&gt;</span> /refund-replies <span class='dim'>order #4821 arrived late</span>",
+          "<span class='grn'>✓ reply drafted in your voice</span>",
+          "<span class='dim'>now compare it to what you'd have sent</span>"
+        ]
+      }
+    },
+    {
+      "slug": "the-payoff",
+      "kicker": "The payoff",
+      "color": "#E8913D",
+      "title": "Write it once",
+      "def": "an hour of writing",
+      "body": "…and every AI tool you use starts sounding like your business.",
+      "mock": {
+        "type": "names",
+        "title": "after one hour",
+        "sub": "· every tool",
+        "rows": [
+          {
+            "icon": "claude",
+            "name": "Claude",
+            "term": "✓ sounds like you"
+          },
+          {
+            "icon": "googlegemini",
+            "name": "Gemini",
+            "term": "✓ sounds like you"
+          },
+          {
+            "icon": "openai",
+            "name": "ChatGPT",
+            "term": "✓ sounds like you"
+          }
+        ]
+      }
+    }
+  ],
+  "cta": {
+    "line1": "Which task would you",
+    "mark": "write down",
+    "line2": "first?",
+    "sub": "Drop it in the comments — I'll tell you the first rule I'd write.",
+    "pill": "@shazimbuilds"
+  }
+}

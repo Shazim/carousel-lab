@@ -118,6 +118,15 @@ auto-used when present, or set `bgimg` per slide).
          "pill": "@shazimbuilds" }
 ```
 
+Extensions (added for skills-once):
+- `"pill": "Step"` replaces the "Lvl" label on slides and the cover.
+- A slide without `n` drops the folder + pill and shows `kicker` instead
+  (intro / payoff slides in a numbered set).
+- Mock types `names` (`rows: [{icon,name,term,hot}]`) and `skill`
+  (`tabs: [...]`, `active: i`, `lines: [...]` — tabs before `active` show ✓).
+- Cover `titleSize` (px) for long titles; use `<br>` to control the break.
+- Backgrounds resolve `assets/images/lvl-bg.{png,jpg}` / `lvl-bg-cover.{png,jpg}`.
+
 Mock `lines` accept spans: `class='dim|grn|org|cy|yl|hlt'`. Inside `lines`, use
 `&nbsp;` for indentation. `mockPos:"top"` shrinks the window font, never the
 titles. Chips: ≤3, they must clear the bottom margin — verify visually.
