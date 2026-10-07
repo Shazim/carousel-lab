@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:1080px; height:1350px; }
+  body {
+    background:#0C0C0C; color:#F3F1EC; position:relative; overflow:hidden;
+    font-family:'Manrope',sans-serif; -webkit-font-smoothing:antialiased;
+  }
+  /* composition: warm haze behind the panel + faint dot grid + grain */
+  .haze { position:absolute; inset:0;
+    background:
+      radial-gradient(620px 420px at 78% 70%, rgba(255,138,0,.20), transparent 70%),
+      radial-gradient(520px 360px at 12% 92%, rgba(201,100,66,.12), transparent 70%); }
+  .grid { position:absolute; inset:0; opacity:.18;
+    background-image:radial-gradient(rgba(255,255,255,.55) 1px, transparent 1.4px);
+    background-size:32px 32px;
+    -webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,0) 46%); }
+  .grain { position:absolute; inset:0; opacity:.07; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+  .frame { position:absolute; inset:88px; display:flex; flex-direction:column; }
+
+  .kicker { font-weight:700; font-size:24px; letter-spacing:5px; text-transform:uppercase; color:#8E8A82; }
+  .kicker b { color:#FF8A00; font-weight:700; }
+  h1 { font-family:'Cal Sans',sans-serif; font-weight:400; font-size:96px; line-height:1.05; white-space:nowrap;
+       letter-spacing:-1px; margin-top:24px; }
+  h1 em { font-style:normal; color:#FF8A00; }
+
+  /* the mockup: generic, unbranded agent permissions panel */
+  .mat { margin-top:48px; padding:20px; border-radius:40px; background:rgba(255,255,255,.06);
+         border:1px solid rgba(255,255,255,.08);
+         box-shadow:0 32px 70px rgba(0,0,0,.55), 0 8px 20px rgba(0,0,0,.35); }
+  .win { background:#FBFAF7; color:#1C1B19; border-radius:24px; overflow:hidden;
+         font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',sans-serif; }
+  .bar { display:flex; align-items:center; gap:16px; padding:22px 32px; border-bottom:1px solid #ECE9E2; background:#F4F2EC; }
+  .lights { display:flex; gap:9px; }
+  .lights i { width:14px; height:14px; border-radius:50%; display:block; }
+  .bar .t { font-size:24px; font-weight:600; color:#3A3833; margin-left:8px; }
+  .bar .s { margin-left:auto; font-size:20px; color:#8B877E; }
+
+  .sec { padding:18px 32px 6px; }
+  .sec + .sec { border-top:1px solid #EFECE6; }
+  .sh { display:flex; align-items:center; gap:12px; font-size:20px; font-weight:700; letter-spacing:1.5px;
+        text-transform:uppercase; color:#8B877E; margin-bottom:4px; }
+  .sh .dot { width:14px; height:14px; border-radius:50%; }
+  .row { display:flex; align-items:center; justify-content:space-between; padding:10px 0; }
+  .row + .row { border-top:1px solid #F2F0EB; }
+  .row .l { font-size:28px; font-weight:500; color:#1C1B19; letter-spacing:-.2px; }
+
+  .seg { display:flex; background:#EDEAE3; border-radius:12px; padding:4px; gap:2px; }
+  .seg span { font-size:20px; font-weight:600; color:#8B877E; padding:7px 0; width:78px; text-align:center; border-radius:9px; }
+  .seg span.on { color:#fff; box-shadow:0 2px 6px rgba(0,0,0,.14); }
+  .g .on { background:#2E9E5B; }
+  .a .on { background:#E8890C; }
+  .r .on { background:#D9443A; }
+
+  .foot { margin-top:auto; display:flex; justify-content:space-between; align-items:baseline;
+          font-size:26px; font-weight:600; color:#8E8A82; }
+  .foot .q { color:#F3F1EC; font-weight:600; }
+</style></head>
+<body>
+  <div class="haze"></div><div class="grid"></div><div class="grain"></div>
+  <div class="frame">
+    <div class="kicker">The screen most people <b>skip</b></div>
+    <h1>Set your agent's <em>limits</em></h1>
+
+    <div class="mat"><div class="win">
+      <div class="bar">
+        <div class="lights"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i></div>
+        <div class="t">Agent permissions</div>
+        <div class="s">Small business</div>
+      </div>
+
+      <div class="sec g">
+        <div class="sh"><span class="dot" style="background:#2E9E5B"></span>Works alone · read-only</div>
+        <div class="row"><span class="l">Research and summaries</span><div class="seg"><span class="on">Auto</span><span>Ask</span><span>Off</span></div></div>
+        <div class="row"><span class="l">Pull this week's numbers</span><div class="seg"><span class="on">Auto</span><span>Ask</span><span>Off</span></div></div>
+        <div class="row"><span class="l">Spot patterns in customer messages</span><div class="seg"><span class="on">Auto</span><span>Ask</span><span>Off</span></div></div>
+      </div>
+
+      <div class="sec a">
+        <div class="sh"><span class="dot" style="background:#E8890C"></span>Asks first · leaves the building</div>
+        <div class="row"><span class="l">Reply to a customer</span><div class="seg"><span>Auto</span><span class="on">Ask</span><span>Off</span></div></div>
+        <div class="row"><span class="l">Publish a post or send an invoice</span><div class="seg"><span>Auto</span><span class="on">Ask</span><span>Off</span></div></div>
+        <div class="row"><span class="l">Change a live order</span><div class="seg"><span>Auto</span><span class="on">Ask</span><span>Off</span></div></div>
+      </div>
+
+      <div class="sec r">
+        <div class="sh"><span class="dot" style="background:#D9443A"></span>Never</div>
+        <div class="row"><span class="l">Move money or issue refunds</span><div class="seg"><span>Auto</span><span>Ask</span><span class="on">Off</span></div></div>
+        <div class="row"><span class="l">Delete records</span><div class="seg"><span>Auto</span><span>Ask</span><span class="on">Off</span></div></div>
+        <div class="row"><span class="l">Change who has access</span><div class="seg"><span>Auto</span><span>Ask</span><span class="on">Off</span></div></div>
+      </div>
+    </div></div>
+
+    <div class="foot"><span>@shazimbuilds</span><span class="q">Which task would you hand off?</span></div>
+  </div>
+</body></html>

@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "playwright": "^1.62.1"
+  },
+  "devDependencies": {
+    "hyperframes": "^0.8.137"
   }
 }

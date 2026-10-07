@@ -5,8 +5,8 @@
   "handle": "@shazimbuilds",
   "keyword": null,
   "guideUrl": null,
-  "status": "draft",
-  "scheduled": "2026-10-21",
+  "status": "scheduled",
+  "scheduled": "2026-10-14",
   "posted": null,
   "results": {
     "reach": null,
@@ -337,5 +337,6 @@
     ],
     "body": "Send me a message and I'll tell you where I'd look first.",
     "pill": "DM @shazimbuilds"
-  }
+  },
+  "calendarId": "C2"
 }

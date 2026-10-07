@@ -36,7 +36,21 @@ may reset cwd between calls.
 
 ## The workflow for any new post
 
-The user sends either a topic, or reference images of someone else's carousel.
+Shazim sends one of three things:
+
+- **A. Reference images** of someone else's carousel (often downloaded via
+  fastdl.app). Clone the *layout system*, rewrite every word for his audience.
+- **B. A written brief** from his Notion content system (the most common since
+  Oct 2026). Shape: `Carousel C<n>` · title · posting date · numbered slide
+  copy (1 = cover, last = CTA) · Instagram caption · hashtags · a "Research ·
+  T<n>" block with facts and sources. The copy is his — render it faithfully,
+  but (a) verify any claim that has no public source with a web search and
+  correct it (the brief's Gems→Skills date was wrong), (b) fix technical errors
+  and say so (check 2 "no API keys in the browser" was wrong: publishable keys
+  are fine), (c) keep his numbers exactly; never invent new ones.
+- **C. A topic only.** Research it first (current, last ~6 weeks), propose the
+  angle and slide spine, get a yes, then build.
+
 Then:
 
 1. **Analyze the reference (if any).** Identify the layout system, not the
@@ -147,30 +161,52 @@ full draft exists, and iterate on their feedback. They review on their phone.
 5. **Templates carry fallbacks** so a post is reviewable before its art exists.
 6. Old files are never deleted with `rm` (often permission-blocked) — move to
    `_archive/` with `mv` instead.
-7. **Files prefixed `_` in exports/ are excluded** from contact sheets and
+6. **No em dashes in slide copy or captions.** Shazim's voice rule
+   (shazimbuilds-content/CLAUDE.md): periods and commas instead. Run
+   `grep -rn "—" posts/<slug>/post.json posts/<slug>/caption.md` before
+   delivering. (C1–C4 shipped with some em dashes on slides; don't repeat it.)
+   Also respect that file's banned-word list and the humanizer pass.
+7. **No freshness stamps on slides** ("September 2026", "prices checked 5 Oct")
+   — they date the post on the feed. Verification dates live in research.md.
+   Facts that protect the reader over time (a promo end date) may stay.
+8. **Client case studies**: every metric must come from the brief, never
+   invented; confirm the client is nameable (shazimbuilds-content/CLAUDE.md
+   "Anonymity rules"); mockups of the client's system are labelled as
+   reconstructions in notes; never real people's names in mock messages.
+9. **Files prefixed `_` in exports/ are excluded** from contact sheets and
    LinkedIn PDFs (that's how `_contact.png` stays out). Superseded slides go to
    `_old-<name>.png` — never leave a stray extra `.png` in exports/, it silently
    becomes an extra page in linkedin.pdf.
-8. Logos: local SVGs in `assets/logos/` (see TEMPLATES.md for the id list).
+10. Logos: local SVGs in `assets/logos/` (see TEMPLATES.md for the id list).
    Simple Icons CDN has removed openai/grok (use lobehub fetches already saved
    here), slack and botpress (slack.svg here is an empty dead file — don't use
    it; botpress/mindstudio/zapier-asterisk are hand-drawn inside templates).
 
-## Posts inventory (as of 2026-09-09)
+## Posts inventory (as of 2026-10-07)
 
-| slug | template | status |
-|---|---|---|
-| ai-tools | icon-grid | test-dummy (cover replaced manually Sep 14) |
-| claude-prompts | editorial | test-dummy |
-| founder-vitamins | editorial-grid | test-dummy (watercolor icons pending) |
-| claude-code-levels | level-series | draft — LEVELS guide not built yet |
-| founder-agents | agent-recipes | draft — AGENTS guide written, not published |
-| capy-team-meme | meme | draft — ready to post |
-| expensive-employee | none (video) | draft — guide written, needs hosting for AUTOMATE |
-| ai-model-picker | model-cards (dark) | ready — scheduled Wed 14 Oct; re-check prices first |
-| launch-checks | agent-recipes (cream, orange accent) | ready — scheduled Wed 21 Oct; DM CTA |
-| skills-once | level-series (painted, "Step" pills) | ready — scheduled Wed 28 Oct |
-| slack-studio | slack-case (new, cool white + Slack UI) | ready — Wed 4 Nov; needs client consent to name 9/16 |
+October carousels C1–C4 are final and scheduled (Instagram 8pm PKT, TikTok
+9pm PKT, LinkedIn document versions L6/L10/L13/L16). Status/scheduling lives in
+`../shazimbuilds-content/calendar/schedule.md` — this folder only designs.
+
+| slug | calendar | template | status |
+|---|---|---|---|
+| ai-model-picker | C1 · Wed 7 Oct | model-cards (dark spec sheet) | scheduled |
+| launch-checks | C2 · Wed 14 Oct | agent-recipes (cream, orange accent) | scheduled |
+| skills-once | C3 · Wed 21 Oct | level-series (painted, "Step" pills) | scheduled |
+| slack-studio | C4 · Wed 28 Oct | slack-case (cool white + Slack UI) | scheduled; client 9/16 is nameable |
+| expensive-employee | reel | none (video) | guide written; AUTOMATE delivery via openreply |
+| capy-team-meme | — | meme | ready, not scheduled |
+| claude-code-levels | — | level-series | draft; LEVELS guide not built |
+| founder-agents | — | agent-recipes | draft; AGENTS guide written, not published |
+| ai-tools, claude-prompts, founder-vitamins | — | icon-grid / editorial / editorial-grid | test dummies |
+
+Template rotation for the next carousel (C5): the last four used model-cards,
+agent-recipes, level-series, slack-case — pick something else (editorial,
+editorial-grid, icon-grid) or build template #9.
+
+Other folders made by a parallel session (not carousels):
+- `posts/l2-agent-limits/` — a single LinkedIn image card (card.html → png).
+- `reels/t3-broll/` — an unused HyperFrames B-roll test (B-roll now goes to the editor).
 
 Repo: `git@github.com:Shazim/carousel-lab.git` (branch `main`). Commit after
 each work session. `node_modules/` and `posts/*/build/` are gitignored.

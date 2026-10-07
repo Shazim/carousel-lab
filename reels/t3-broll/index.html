@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>T3 B-roll: Why AI hasn't saved you time yet</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Cal Sans'; src: url('assets/fonts/CalSans-latin.woff2') format('woff2'); font-weight: 400; }
+      @font-face { font-family: 'Manrope'; src: url('assets/fonts/Manrope-latin-var.woff2') format('woff2'); font-weight: 200 800; }
+      :root {
+        --bg: #0C0C0C; --card: #161616; --line: #2A2A2A; --text: #F4F1EA; --muted: #8C8A85;
+        --dim: #4A4845; --orange: #FF8A00; --orange-soft: rgba(255, 138, 0, 0.12); --red: #FF5C5C;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+      body { color: var(--text); font-family: 'Manrope', sans-serif; -webkit-font-smoothing: antialiased; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--bg); }
+      .glow { position: absolute; inset: 0; background: radial-gradient(900px 700px at 50% 20%, rgba(255, 138, 0, 0.12), transparent 70%); }
+      .clip { position: absolute; inset: 0; }
+      /* content lives inside the safe area: y 320 to 1500 */
+      .scene-content { display: flex; flex-direction: column; justify-content: flex-start; width: 100%; height: 100%;
+        padding: 360px 84px 300px; gap: 28px; }
+      .kicker { font-weight: 800; font-size: 32px; letter-spacing: 6px; text-transform: uppercase; color: var(--orange); }
+      .title { font-family: 'Cal Sans', sans-serif; font-size: 98px; line-height: 1.02; letter-spacing: -1.5px; }
+      .end { font-family: 'Cal Sans', sans-serif; font-size: 92px; letter-spacing: -1px; color: var(--orange); margin-top: 12px; }
+
+      /* scene 1: stats */
+      .stat { display: flex; flex-direction: column; gap: 16px; margin-top: 30px; }
+      .stat-num { font-family: 'Cal Sans', sans-serif; font-size: 300px; line-height: 0.9; letter-spacing: -8px;
+        font-variant-numeric: tabular-nums; }
+      .stat-num.hot { color: var(--orange); }
+      .stat-pre { font-weight: 700; font-size: 40px; color: var(--muted); letter-spacing: 1px; }
+      .stat-label { font-weight: 600; font-size: 52px; line-height: 1.22; max-width: 912px; }
+      .track { position: relative; width: 100%; height: 30px; border-radius: 15px; background: #1E1E1E; overflow: hidden; margin-top: 10px; }
+      .fill { display: block; height: 100%; border-radius: 15px; transform-origin: left center; }
+      .fill.hot { width: 62%; background: var(--orange); }
+      .fill.cold { width: 25%; background: #6E6B66; }
+      .source { font-weight: 600; font-size: 34px; color: var(--muted); margin-top: 26px; }
+
+      /* scenes 2 and 3: process steps */
+      .steps { display: flex; flex-direction: column; width: 100%; margin-top: 18px; }
+      .slot { width: 100%; height: 160px; overflow: hidden; }
+      .step { position: relative; display: flex; align-items: center; gap: 28px; height: 138px; padding: 0 36px;
+        background: var(--card); border: 2px solid var(--line); border-radius: 24px; }
+      .step.ai { border: 3px dashed var(--orange); background: var(--orange-soft); }
+      .step.ai-solid { border: 3px solid var(--orange); background: var(--orange-soft); }
+      .dot { width: 24px; height: 24px; border-radius: 50%; background: var(--dim); flex: none; }
+      .step.ai .dot, .step.ai-solid .dot { background: var(--orange); }
+      .txt { position: relative; flex: 1; height: 68px; }
+      .txt span { position: absolute; left: 0; top: 0; font-weight: 700; font-size: 50px; line-height: 68px; white-space: nowrap; }
+      .pill { flex: none; font-weight: 800; font-size: 26px; letter-spacing: 3px; padding: 10px 18px; border-radius: 999px;
+        border: 2px solid var(--muted); color: var(--muted); }
+      .pill.you { border-color: var(--orange); color: var(--orange); }
+      .strike { position: absolute; left: 30px; right: 30px; top: 66px; height: 6px; border-radius: 3px; background: var(--red);
+        transform-origin: left center; }
+      .counter { display: flex; align-items: center; gap: 26px; margin-top: 12px; }
+      .counter-label { font-weight: 700; font-size: 46px; color: var(--muted); }
+      .counter-num { position: relative; width: 110px; height: 116px; }
+      .counter-num span { position: absolute; left: 0; top: 0; font-family: 'Cal Sans', sans-serif; font-size: 116px; line-height: 116px; }
+      .counter-num .new { color: var(--orange); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="22.5" data-width="1080" data-height="1920">
+      <div class="glow"></div>
+
+      <!-- Scene 1: the numbers (0 to 7s) -->
+      <section id="s1" class="clip" data-start="0" data-duration="7" data-track-index="0">
+        <div class="scene-content">
+          <div id="s1-kicker" class="kicker">Upwork Research Institute · 2026</div>
+          <div id="s1-a" class="stat">
+            <div id="s1-n1" class="stat-num hot">0%</div>
+            <div id="s1-l1" class="stat-label">of small-business leaders trust AI agents with high-stakes work</div>
+            <div class="track"><span id="s1-f1" class="fill hot"></span></div>
+          </div>
+          <div id="s1-b" class="stat">
+            <div id="s1-pre" class="stat-pre">BUT FOR MOST, THE GAIN IS UNDER</div>
+            <div id="s1-n2" class="stat-num">0%</div>
+            <div id="s1-l2" class="stat-label">productivity gain</div>
+            <div class="track"><span id="s1-f2" class="fill cold"></span></div>
+          </div>
+          <div id="s1-src" class="source">Survey of 195 small-business leaders</div>
+        </div>
+      </section>
+
+      <!-- Scene 2: AI on top of the old process (7 to 14.5s) -->
+      <section id="s2" class="clip" data-start="7" data-duration="7.5" data-track-index="0">
+        <div class="scene-content">
+          <div id="s2-kicker" class="kicker">How most businesses add AI</div>
+          <div id="s2-title" class="title">AI on top of the old process</div>
+          <div class="steps">
+            <div id="s2-r1" class="slot"><div class="step"><span class="dot"></span><div class="txt"><span>Email arrives</span></div></div></div>
+            <div id="s2-r2" class="slot"><div class="step ai"><span class="dot"></span><div class="txt"><span>AI summary to read</span></div><span class="pill you">YOU</span></div></div>
+            <div id="s2-r3" class="slot"><div class="step"><span class="dot"></span><div class="txt"><span>Someone reads it</span></div><span class="pill you">YOU</span></div></div>
+            <div id="s2-r4" class="slot"><div class="step"><span class="dot"></span><div class="txt"><span>Someone writes the reply</span></div><span class="pill you">YOU</span></div></div>
+          </div>
+          <div id="s2-counter" class="counter">
+            <div class="counter-label">Steps you do</div>
+            <div class="counter-num" data-layout-allow-overlap="true"><span id="s2-c-old">2</span><span id="s2-c-new" class="new">3</span></div>
+          </div>
+          <div id="s2-end" class="end">Nothing got removed.</div>
+        </div>
+      </section>
+
+      <!-- Scene 3: redraw the process (14.5 to 22.5s) -->
+      <section id="s3" class="clip" data-start="14.5" data-duration="8" data-track-index="0">
+        <div class="scene-content">
+          <div id="s3-kicker" class="kicker">Where the gains come from</div>
+          <div id="s3-title" class="title">Redraw the process</div>
+          <div class="steps">
+            <div id="s3-r1" class="slot"><div class="step"><span class="dot"></span><div class="txt"><span>Email arrives</span></div></div></div>
+            <div id="s3-r2" class="slot"><div class="step ai"><span class="dot"></span><div class="txt"><span>AI summary to read</span></div><span class="pill you">YOU</span><span id="s3-x2" class="strike"></span></div></div>
+            <div id="s3-r3" class="slot"><div class="step"><span class="dot"></span><div class="txt"><span>Someone reads it</span></div><span class="pill you">YOU</span><span id="s3-x3" class="strike"></span></div></div>
+            <div id="s3-rn" class="slot"><div class="step ai-solid"><span class="dot"></span><div class="txt"><span>AI reads, sorts, drafts</span></div><span class="pill">AI</span></div></div>
+            <div id="s3-r4" class="slot"><div class="step"><span class="dot"></span><div class="txt"><span id="s3-t4a">Someone writes the reply</span><span id="s3-t4b">You approve the draft</span></div><span class="pill you">YOU</span></div></div>
+          </div>
+          <div id="s3-counter" class="counter">
+            <div class="counter-label">Steps you do</div>
+            <div class="counter-num" data-layout-allow-overlap="true"><span id="s3-c-old">3</span><span id="s3-c-new" class="new">1</span></div>
+          </div>
+          <div id="s3-end" class="end">Delete those first.</div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const fadeUp = (sel, at, d = 0.6, y = 36) =>
+        tl.fromTo(sel, { autoAlpha: 0, y }, { autoAlpha: 1, y: 0, duration: d, ease: "power3.out" }, at);
+      const swap = (oldSel, newSel, at) => {
+        tl.fromTo(oldSel, { autoAlpha: 1, y: 0 }, { autoAlpha: 0, y: -60, duration: 0.4, ease: "power2.in" }, at);
+        tl.fromTo(newSel, { autoAlpha: 0, y: 60 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "back.out(2)" }, at + 0.25);
+      };
+      const countUp = (sel, to, at, d) => {
+        const proxy = { v: 0 };
+        tl.fromTo(proxy, { v: 0 }, {
+          v: to, duration: d, ease: "power3.out", immediateRender: at <= 0.5,
+          onUpdate: () => { document.querySelector(sel).textContent = Math.round(proxy.v) + "%"; }
+        }, at);
+      };
+      const grow = (sel, at, d = 1.3) =>
+        tl.fromTo(sel, { scaleX: 0 }, { scaleX: 1, duration: d, ease: "power3.out" }, at);
+      const openSlot = (sel, at) =>
+        tl.fromTo(sel, { height: 0, autoAlpha: 0 }, { height: 160, autoAlpha: 1, duration: 0.6, ease: "power3.out" }, at);
+      const closeSlot = (sel, at) =>
+        tl.fromTo(sel, { height: 160, autoAlpha: 1 }, { height: 0, autoAlpha: 0, duration: 0.6, ease: "power3.inOut" }, at);
+
+      // Scene 1 (0 to 7)
+      fadeUp("#s1-kicker", 0.2, 0.5, 20);
+      fadeUp("#s1-a", 0.35);
+      countUp("#s1-n1", 62, 0.5, 1.4);
+      grow("#s1-f1", 0.5, 1.4);
+      fadeUp("#s1-b", 2.5);
+      countUp("#s1-n2", 25, 2.7, 1.1);
+      grow("#s1-f2", 2.7, 1.1);
+      fadeUp("#s1-src", 4.4, 0.5, 16);
+
+      // Scene 2 (7 to 14.5): three steps, then AI gets added on top
+      const S2 = 7;
+      fadeUp("#s2-kicker", S2 + 0.15, 0.5, 20);
+      fadeUp("#s2-title", S2 + 0.3);
+      tl.set("#s2-r2", { height: 0, autoAlpha: 0 }, S2);
+      fadeUp("#s2-r1", S2 + 0.8, 0.5);
+      fadeUp("#s2-r3", S2 + 1.05, 0.5);
+      fadeUp("#s2-r4", S2 + 1.3, 0.5);
+      fadeUp("#s2-counter", S2 + 1.6, 0.5);
+      tl.set("#s2-c-new", { autoAlpha: 0 }, S2);
+      openSlot("#s2-r2", S2 + 2.9);
+      swap("#s2-c-old", "#s2-c-new", S2 + 3.4);
+      fadeUp("#s2-end", S2 + 4.6);
+
+      // Scene 3 (14.5 to 22.5): strike the human-only steps, collapse, add the AI step
+      const S3 = 14.5;
+      fadeUp("#s3-kicker", S3 + 0.15, 0.5, 20);
+      fadeUp("#s3-title", S3 + 0.3);
+      tl.set("#s3-rn", { height: 0, autoAlpha: 0 }, S3);
+      tl.set(["#s3-t4b", "#s3-c-new"], { autoAlpha: 0 }, S3);
+      fadeUp(".steps #s3-r1, .steps #s3-r2, .steps #s3-r3, .steps #s3-r4", S3 + 0.6, 0.5);
+      fadeUp("#s3-counter", S3 + 0.8, 0.5);
+      grow("#s3-x2", S3 + 1.7, 0.45);
+      grow("#s3-x3", S3 + 1.95, 0.45);
+      closeSlot("#s3-r2", S3 + 2.7);
+      closeSlot("#s3-r3", S3 + 2.85);
+      openSlot("#s3-rn", S3 + 3.5);
+      tl.fromTo("#s3-t4a", { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.3 }, S3 + 3.9);
+      tl.fromTo("#s3-t4b", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4 }, S3 + 4.1);
+      swap("#s3-c-old", "#s3-c-new", S3 + 4.4);
+      fadeUp("#s3-end", S3 + 5.4);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

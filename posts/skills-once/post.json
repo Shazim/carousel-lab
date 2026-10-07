@@ -5,8 +5,8 @@
   "handle": "@shazimbuilds",
   "keyword": null,
   "guideUrl": null,
-  "status": "draft",
-  "scheduled": "2026-10-28",
+  "status": "scheduled",
+  "scheduled": "2026-10-21",
   "posted": null,
   "results": {
     "reach": null,
@@ -282,5 +282,6 @@
     "line2": "first?",
     "sub": "Drop it in the comments — I'll tell you the first rule I'd write.",
     "pill": "@shazimbuilds"
-  }
+  },
+  "calendarId": "C3"
 }

@@ -5,8 +5,8 @@
   "handle": "@shazimbuilds",
   "keyword": null,
   "guideUrl": null,
-  "status": "draft",
-  "scheduled": "2026-10-14",
+  "status": "scheduled",
+  "scheduled": "2026-10-07",
   "posted": null,
   "results": {
     "reach": null,
@@ -188,5 +188,6 @@
   "cta": {
     "q": "Which AI subscription are you paying for that you <em>barely use</em>?",
     "sub": "@shazimbuilds"
-  }
+  },
+  "calendarId": "C1"
 }

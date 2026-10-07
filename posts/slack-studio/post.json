@@ -5,121 +5,279 @@
   "handle": "@shazimbuilds",
   "keyword": null,
   "guideUrl": null,
-  "status": "draft",
-  "scheduled": "2026-11-04",
+  "status": "scheduled",
+  "scheduled": "2026-10-28",
   "posted": null,
-  "results": { "reach": null, "saves": null, "shares": null, "comments": null, "follows": null },
+  "results": {
+    "reach": null,
+    "saves": null,
+    "shares": null,
+    "comments": null,
+    "follows": null
+  },
   "notes": "Real client case study — confirm 9/16 is happy to be named before posting. New template slack-case (rotation: last three were model-cards, agent-recipes, level-series). Slack mockups are reconstructions from the brief: channel names and message wording are illustrative; the two news stories in workflow 1 are real (sourced). Teal = Orbiqon-built (bot avatar, credit chip).",
   "template": "slack-case",
   "cover": {
     "kicker": "case study · 9/16 studio",
     "big": "22",
     "title": "workflows.<br>One content studio.<br><span class='m'>All run from Slack.</span>",
-    "logos": [ { "icon": "slack-color" }, { "icon": "n8n", "color": "#EA4B71" }, { "icon": "openai", "color": "#111418" } ]
+    "logos": [
+      {
+        "icon": "slack-color"
+      },
+      {
+        "icon": "n8n",
+        "color": "#EA4B71"
+      },
+      {
+        "icon": "openai",
+        "color": "#111418"
+      }
+    ]
   },
   "slides": [
     {
-      "type": "agents", "slug": "why-now", "kicker": "Why now",
+      "type": "agents",
+      "slug": "why-now",
+      "kicker": "Why now",
       "title": "Agents are moving into Slack",
       "body": "OpenAI and SpaceXAI both put AI agents inside Slack this autumn. Here's what running automation there looks like in practice.",
       "cards": [
-        { "icon": "openai", "color": "#111418", "name": "OpenAI Dots", "note": "always-on agent coworkers" },
-        { "icon": "grok", "color": "#111418", "name": "SpaceXAI Team Bots", "note": "shared Grok agents with their own Slack handle" }
+        {
+          "icon": "openai",
+          "color": "#111418",
+          "name": "OpenAI Dots",
+          "note": "always-on agent coworkers"
+        },
+        {
+          "icon": "grok",
+          "color": "#111418",
+          "name": "SpaceXAI Team Bots",
+          "note": "shared Grok agents with their own Slack handle"
+        }
       ]
     },
     {
-      "type": "before", "slug": "before", "kicker": "The studio: 9/16",
+      "type": "before",
+      "slug": "before",
+      "kicker": "The studio: 9/16",
       "title": "Before: all of it by hand",
       "body": "A content studio spending its best hours on the work around the work.",
-      "rows": ["Reading every AI newsletter", "Scrolling creators for ideas", "Writing every script from a blank page"]
+      "rows": [
+        "Reading every AI newsletter",
+        "Scrolling creators for ideas",
+        "Writing every script from a blank page"
+      ]
     },
     {
-      "type": "grid", "slug": "content-os", "kicker": "What we built",
+      "type": "grid",
+      "slug": "content-os",
+      "kicker": "What we built",
       "title": "A Content OS",
       "body": "22 workflows, every one triggered from Slack. Three of them carry the studio:",
       "count": 22,
-      "highlight": { "0": "news", "1": "ideas", "2": "scripts" }
+      "highlight": {
+        "0": "news",
+        "1": "ideas",
+        "2": "scripts"
+      }
     },
     {
-      "type": "slack", "slug": "why-slack", "kicker": "Why Slack",
+      "type": "slack",
+      "slug": "why-slack",
+      "kicker": "Why Slack",
       "title": "The team already lived there",
       "body": "So nobody had to learn a new tool.",
       "window": {
         "channel": "weekly-plan",
-        "sidebar": { "workspace": "9/16 Studio", "channels": ["general", "news-in", "ideas", "scripts", "weekly-plan"], "bold": ["ideas", "scripts"] },
+        "sidebar": {
+          "workspace": "9/16 Studio",
+          "channels": [
+            "general",
+            "news-in",
+            "ideas",
+            "scripts",
+            "weekly-plan"
+          ],
+          "bold": [
+            "ideas",
+            "scripts"
+          ]
+        },
         "messages": [
-          { "time": "9:00 AM", "text": "<b>This week's plan</b> is ready",
+          {
+            "time": "9:00 AM",
+            "text": "<b>This week's plan</b> is ready",
             "list": [
-              { "t": "Mon · 60s reel", "src": "agents in Slack" },
-              { "t": "Wed · LinkedIn draft", "src": "Skills explained" },
-              { "t": "Fri · 30s reel", "src": "one-click scripts" }
-            ] }
+              {
+                "t": "Mon · 60s reel",
+                "src": "agents in Slack"
+              },
+              {
+                "t": "Wed · LinkedIn draft",
+                "src": "Skills explained"
+              },
+              {
+                "t": "Fri · 30s reel",
+                "src": "one-click scripts"
+              }
+            ]
+          }
         ]
       }
     },
     {
-      "type": "slack", "slug": "wf1-news", "kicker": "Workflow 1",
+      "type": "slack",
+      "slug": "wf1-news",
+      "kicker": "Workflow 1",
       "title": "News in, stories out",
       "body": "AI newsletters are split into stories, each with a summary and why it matters.",
       "window": {
-        "channel": "news-in", "members": "studio team",
+        "channel": "news-in",
+        "members": "studio team",
         "messages": [
-          { "time": "8:02 AM", "text": "<b>6 stories</b> from today's AI newsletters",
+          {
+            "time": "8:02 AM",
+            "text": "<b>6 stories</b> from today's AI newsletters",
             "atts": [
-              { "title": "OpenAI launches Dots, always-on agent coworkers",
-                "lines": ["Agents that keep working alongside human teams.", "<em>Why it matters:</em> clients will ask for agents in their own Slack."] },
-              { "title": "Google is replacing Gemini Gems with Skills", "color": "#ECB22E",
-                "lines": ["Saved instructions you call with a slash.", "<em>Why it matters:</em> an easy explainer for founder audiences."] }
-            ] }
+              {
+                "title": "OpenAI launches Dots, always-on agent coworkers",
+                "lines": [
+                  "Agents that keep working alongside human teams.",
+                  "<em>Why it matters:</em> clients will ask for agents in their own Slack."
+                ]
+              },
+              {
+                "title": "Google is replacing Gemini Gems with Skills",
+                "color": "#ECB22E",
+                "lines": [
+                  "Saved instructions you call with a slash.",
+                  "<em>Why it matters:</em> an easy explainer for founder audiences."
+                ]
+              }
+            ]
+          }
         ]
       }
     },
     {
-      "type": "slack", "slug": "wf2-ideas", "kicker": "Workflow 2",
+      "type": "slack",
+      "slug": "wf2-ideas",
+      "kicker": "Workflow 2",
       "title": "Ideas on autopilot",
       "body": "A scraper checks creators and keywords twice a day and files every new idea.",
       "window": {
-        "channel": "ideas", "members": "twice a day",
+        "channel": "ideas",
+        "members": "twice a day",
         "messages": [
-          { "time": "2:00 PM", "text": "<b>Afternoon scan</b> · 5 new ideas filed",
+          {
+            "time": "2:00 PM",
+            "text": "<b>Afternoon scan</b> · 5 new ideas filed",
             "list": [
-              { "t": "Behind the scenes: a studio run from Slack", "src": "keyword · slack automation" },
-              { "t": "Three agents every agency should test", "src": "keyword · ai agents" },
-              { "t": "Blank page vs one-click script", "src": "creator watchlist" }
+              {
+                "t": "Behind the scenes: a studio run from Slack",
+                "src": "keyword · slack automation"
+              },
+              {
+                "t": "Three agents every agency should test",
+                "src": "keyword · ai agents"
+              },
+              {
+                "t": "Blank page vs one-click script",
+                "src": "creator watchlist"
+              }
             ],
-            "ok": ["All 5 filed to the idea board"] }
+            "ok": [
+              "All 5 filed to the idea board"
+            ]
+          }
         ]
       }
     },
     {
-      "type": "slack", "slug": "wf3-scripts", "kicker": "Workflow 3",
+      "type": "slack",
+      "slug": "wf3-scripts",
+      "kicker": "Workflow 3",
       "title": "One click, one script",
       "body": "Any idea becomes a 30, 60 or 90-second script or a LinkedIn draft, then moves into the weekly plan.",
       "window": {
-        "channel": "scripts", "members": "one click",
+        "channel": "scripts",
+        "members": "one click",
         "messages": [
-          { "time": "2:14 PM", "text": "Turn this idea into:",
-            "atts": [ { "title": "Agents just moved into Slack — what it means for teams", "lines": ["from #ideas · filed today"] } ],
-            "buttons": [ { "t": "30s" }, { "t": "60s", "on": true }, { "t": "90s" }, { "t": "LinkedIn draft" } ] },
-          { "time": "2:15 PM", "text": "<b>60-second script ready</b> — hook, three beats, CTA",
-            "ok": ["Moved into the weekly plan"] }
+          {
+            "time": "2:14 PM",
+            "text": "Turn this idea into:",
+            "atts": [
+              {
+                "title": "Agents just moved into Slack — what it means for teams",
+                "lines": [
+                  "from #ideas · filed today"
+                ]
+              }
+            ],
+            "buttons": [
+              {
+                "t": "30s"
+              },
+              {
+                "t": "60s",
+                "on": true
+              },
+              {
+                "t": "90s"
+              },
+              {
+                "t": "LinkedIn draft"
+              }
+            ]
+          },
+          {
+            "time": "2:15 PM",
+            "text": "<b>60-second script ready</b> — hook, three beats, CTA",
+            "ok": [
+              "Moved into the weekly plan"
+            ]
+          }
         ]
       }
     },
     {
-      "type": "stack", "slug": "the-stack", "kicker": "The stack",
+      "type": "stack",
+      "slug": "the-stack",
+      "kicker": "The stack",
       "title": "Built with n8n, Slack and OpenAI",
-      "logos": [ { "icon": "n8n", "color": "#EA4B71" }, { "icon": "slack-color" }, { "icon": "openai", "color": "#111418" } ],
-      "stat": "Hundreds<br>of hours", "cap": "of manual work recovered",
+      "logos": [
+        {
+          "icon": "n8n",
+          "color": "#EA4B71"
+        },
+        {
+          "icon": "slack-color"
+        },
+        {
+          "icon": "openai",
+          "color": "#111418"
+        }
+      ],
+      "stat": "Hundreds<br>of hours",
+      "cap": "of manual work recovered",
       "credit": "built by Orbiqon"
     }
   ],
   "cta": {
     "kicker": "The rule we build by",
     "rules": [
-      { "b": "Fixed workflows", "s": "for repeat work" },
-      { "b": "Agents", "s": "for work that changes", "agent": true }
+      {
+        "b": "Fixed workflows",
+        "s": "for repeat work"
+      },
+      {
+        "b": "Agents",
+        "s": "for work that changes",
+        "agent": true
+      }
     ],
     "q": "Where does your team <em>spend its day?</em>"
-  }
+  },
+  "calendarId": "C4"
 }
