@@ -86,7 +86,28 @@ console.log('✓ threads.md');
   await pg.goto('file://' + pdfSrc);
   await pg.pdf({ path: path.join(outDir, 'linkedin.pdf'),
     preferCSSPageSize: true, printBackground: true });
-  await browser.close();
   console.log('✓ linkedin.pdf');
+
+  // Animated pages (template.animated): seek every CSS animation frame by
+  // frame via ?anim, then encode a looping MP4 for Instagram/TikTok slide 1.
+  const FPS = 30;
+  for (const { name, seconds } of (template.animated ? template.animated(post) : [])) {
+    const frameDir = path.join(buildDir, '_frames-' + name);
+    fs.rmSync(frameDir, { recursive: true, force: true });
+    fs.mkdirSync(frameDir, { recursive: true });
+    const vp = await browser.newPage({ viewport: { width: 1080, height: 1350 } });
+    await vp.goto('file://' + path.join(buildDir, name + '.html') + '?anim');
+    await vp.evaluate(() => document.fonts.ready);
+    await vp.waitForTimeout(1500);
+    const frames = Math.round(seconds * FPS);
+    for (let f = 0; f < frames; f++) {
+      await vp.evaluate((ms) => document.getAnimations().forEach((a) => { a.pause(); a.currentTime = ms; }), (f * 1000) / FPS);
+      await vp.screenshot({ path: path.join(frameDir, String(f).padStart(4, '0') + '.png') });
+    }
+    await vp.close();
+    execSync(`ffmpeg -v error -y -framerate ${FPS} -i "${frameDir}/%04d.png" -c:v libx264 -pix_fmt yuv420p -crf 16 -movflags +faststart "${path.join(outDir, name + '.mp4')}"`);
+    console.log(`✓ ${name}.mp4 (${seconds}s loop)`);
+  }
+  await browser.close();
   console.log(`\n${names.length} slides -> posts/${arg}/exports/`);
 })();

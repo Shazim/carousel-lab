@@ -254,6 +254,37 @@ every number in a case study must come from the brief.
 
 ---
 
+## 9. org-chart — a stack organised like a company (animated cover)
+
+Warm graph-paper ground, Cal Sans + Manrope, JetBrains Mono for tool names,
+numbers and kickers. Identity pill (photo + name + handle) top-right on every
+slide. Each department carries one highlighter tint (orange, mint, lilac, lime,
+pink): the single per-slide variation. Tool tiles use an official mark from
+assets/logos (`logo`) or a drawn glyph on a gradient tile (`glyph`: code,
+search, pen, film, send, globe, flame, layers, image, layout, palette, check,
+sparkle, scissors, calendar, download, play, mail, reply, terminal).
+Cover is **animated**: `render.js` also writes `exports/01-cover.mp4` (dots run
+the wires, departments light in turn; seamless `cover.loop` seconds, default 6).
+Instagram/TikTok get the MP4 as slide 1; the PNG stays the LinkedIn page.
+Post: claude-team.
+
+```json
+"author": "Shazim Khan", "avatar": "shazim/main.png",
+"cover": { "chip": "…", "title": "…<br><em>orange line</em>", "sub": "… <b>bold</b> …",
+           "ceo": "Claude Code", "loop": 6, "animate": true },
+"audit": { "kicker": "…", "title": "… <em>…</em>", "sub": "…", "installed": 328, "used": 18,
+           "workLabel": "…", "work": [ { "v": "6,844", "l": "terminal commands" } ] },   (optional; waffle grid)
+"departments": [ { "tab": "Build", "tint": "orange", "glyph": "code", "title": "Build <em>& Ship</em>", "sub": "…",
+   "hires": [ { "name": "Git", "role": "Version Control", "does": "…", "calls": "466 calls",
+                "logo": "git", "color": "#F05032" } | { …, "glyph": "flame", "color": "#F2622E" } ] } ],   (5 depts × ≤5 hires fits)
+"cta": { "title": "… <em>…</em>", "sub": "…", "after": "and it's yours." }   (keyword from post.keyword)
+```
+
+Badges must be real counts (never invent usage). `calls` can be any short
+label ("my product"); omit it to hide the badge.
+
+---
+
 ## Building a NEW template (the process that works)
 
 1. Study the reference: list every element, decide HTML vs image per element.

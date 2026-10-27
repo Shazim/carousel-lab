@@ -1,0 +1,103 @@
+{
+  "slug": "claude-team",
+  "title": "328 Claude skills installed. I used 18.",
+  "topic": "Audit of Shazim's own Claude Code logs (60 days): 328 skills installed, 18 ever loaded (9 more built-in/project skills were also used); the 25 tools that did the work, organised like a company",
+  "handle": "@shazimbuilds",
+  "author": "Shazim Khan",
+  "avatar": "shazim/main.png",
+  "keyword": "TEAM",
+  "guideUrl": "https://reply.orbiqon.com/files/claude-team",
+  "status": "draft",
+  "scheduled": null,
+  "posted": null,
+  "results": { "reach": null, "saves": null, "shares": null, "comments": null, "follows": null },
+  "notes": "Layout cloned from a Charlie Hills reference (references/claude-team-42), words and data are Shazim's own. Every count is real: tool calls in ~/.claude/projects logs, 28 Aug to 27 Oct 2026, this Mac only (method + script in research.md). New template org-chart (rotation: C1-C4 used model-cards, agent-recipes, level-series, slack-case). Slide 1 ships as exports/01-cover.mp4 on Instagram/TikTok; the PNG is the LinkedIn PDF page.",
+  "template": "org-chart",
+  "cover": {
+    "chip": "my claude code · 60 days of logs",
+    "title": "328 skills installed.<br><em>I used 18.</em>",
+    "sub": "The <b>25 tools that actually did the work</b>, organised like a team. One CEO, five departments.",
+    "ceo": "Claude Code",
+    "loop": 6
+  },
+  "audit": {
+    "kicker": "The audit · 60 days · 45 sessions",
+    "title": "Most of it <em>sat idle</em>",
+    "sub": "Each square is a skill I installed. Orange ones I actually used.",
+    "installed": 328,
+    "used": 18,
+    "workLabel": "Where the work actually went",
+    "work": [
+      { "v": "6,844", "l": "terminal commands" },
+      { "v": "1,818", "l": "actions in my Chrome" },
+      { "v": "1,182", "l": "video edits in ChatCut" }
+    ]
+  },
+  "departments": [
+    {
+      "tab": "Build", "tint": "orange", "glyph": "code",
+      "title": "Build <em>& Ship</em>",
+      "sub": "Write it, test it, put it live.",
+      "hires": [
+        { "name": "Git", "role": "Version Control", "does": "Saves every step so nothing gets lost", "calls": "466 calls", "logo": "git", "color": "#F05032" },
+        { "name": "GitHub CLI", "role": "Release Manager", "does": "Opens pull requests and ships code", "calls": "89 calls", "logo": "github", "color": "#171512" },
+        { "name": "Docker", "role": "Ops Lead", "does": "Runs the whole stack on my laptop", "calls": "61 calls", "logo": "docker", "color": "#2496ED" },
+        { "name": "Playwright", "role": "Test Pilot", "does": "Drives a real browser. Renders these slides", "calls": "57 calls", "logo": "playwright", "color": "#2EAD33" },
+        { "name": "Vercel", "role": "Launch Engineer", "does": "Puts a site live with one command", "calls": "35 calls", "logo": "vercel", "color": "#171512" }
+      ]
+    },
+    {
+      "tab": "Research", "tint": "mint", "glyph": "search",
+      "title": "Research <em>& Read</em>",
+      "sub": "Eyes on the web before anything gets written.",
+      "hires": [
+        { "name": "Claude in Chrome", "role": "Browser Operator", "does": "Works inside my logged-in Chrome", "calls": "1,818 calls", "logo": "googlechrome", "color": "#4285F4" },
+        { "name": "Built-in Browser", "role": "Researcher", "does": "Claude's own browser for docs and tests", "calls": "775 calls", "glyph": "globe", "color": "#C96442" },
+        { "name": "Firecrawl", "role": "Web Reader", "does": "Turns any page into clean text", "calls": "149 calls", "glyph": "flame", "color": "#F2622E" },
+        { "name": "gstack browse", "role": "Fast Checker", "does": "Headless browser, about 100ms a command", "calls": "90 calls", "glyph": "layers", "color": "#3D4450" },
+        { "name": "Notion", "role": "Archivist", "does": "Reads my content system and news feed", "calls": "16 calls", "logo": "notion", "color": "#171512" }
+      ]
+    },
+    {
+      "tab": "Design", "tint": "lilac", "glyph": "pen",
+      "title": "Design <em>& Polish</em>",
+      "sub": "So nothing ships looking AI-made.",
+      "hires": [
+        { "name": "ImageMagick", "role": "Image Fixer", "does": "Resizes, crops and converts images", "calls": "155 calls", "glyph": "image", "color": "#7A4BA6" },
+        { "name": "artifact-design", "role": "Page Designer", "does": "Lays out the pages I publish from Claude", "calls": "6 calls", "glyph": "layout", "color": "#C96442" },
+        { "name": "ui-ux-pro-max", "role": "Design Lead", "does": "Real spacing, type and colour rules", "calls": "4 calls", "glyph": "palette", "color": "#E2700A" },
+        { "name": "impeccable", "role": "Style Guardian", "does": "Audits a design and fixes the tells", "calls": "4 calls", "glyph": "check", "color": "#2F6FDE" },
+        { "name": "taste-skill", "role": "Taste Maker", "does": "Blocks the generic AI look", "calls": "2 calls", "glyph": "sparkle", "color": "#D6457A" }
+      ]
+    },
+    {
+      "tab": "Make", "tint": "lime", "glyph": "film",
+      "title": "Make <em>the Content</em>",
+      "sub": "Reels, motion and the posting queue.",
+      "hires": [
+        { "name": "ChatCut", "role": "Video Editor", "does": "Cuts my reels, captions and B-roll", "calls": "1,182 calls", "glyph": "scissors", "color": "#171512" },
+        { "name": "ffmpeg", "role": "Cutter", "does": "Cuts, joins and converts any video", "calls": "274 calls", "logo": "ffmpeg", "color": "#007808" },
+        { "name": "Postiz", "role": "Scheduler", "does": "Queues posts across every channel", "calls": "50 calls", "glyph": "calendar", "color": "#612BD3" },
+        { "name": "yt-dlp", "role": "Footage Runner", "does": "Pulls reference clips to study", "calls": "13 calls", "glyph": "download", "color": "#C2453A" },
+        { "name": "HyperFrames", "role": "Motion Designer", "does": "HTML in, rendered video out", "calls": "9 calls", "glyph": "play", "color": "#1F7A63" }
+      ]
+    },
+    {
+      "tab": "Sell", "tint": "pink", "glyph": "send",
+      "title": "Find <em>& Sell</em>",
+      "sub": "Leads in, replies out.",
+      "hires": [
+        { "name": "La Growth Machine", "role": "SDR", "does": "Runs my LinkedIn and email sequences", "calls": "106 calls", "glyph": "send", "color": "#4B3FE0" },
+        { "name": "Instantly", "role": "Email Ops", "does": "Cold email campaigns and warm-up", "calls": "23 calls", "glyph": "mail", "color": "#1F6FEB" },
+        { "name": "n8n", "role": "Automation Builder", "does": "Builds and checks workflows", "calls": "9 calls", "logo": "n8n", "color": "#EA4B71" },
+        { "name": "linkedin-skills", "role": "Copy Editor", "does": "Strips the AI tells from my posts", "calls": "3 calls", "logo": "linkedin", "color": "#0A66C2" },
+        { "name": "OpenReply", "role": "Inbox Runner", "does": "Sends this guide when you comment", "calls": "my product", "glyph": "reply", "color": "#FF8A00" }
+      ]
+    }
+  ],
+  "cta": {
+    "title": "25 hires.<br><em>Start with one.</em>",
+    "sub": "I'll send you <b>the install step for all 25</b>, with the official link for each, plus <b>the script I used to audit my own logs.</b>",
+    "after": "and it's yours."
+  }
+}

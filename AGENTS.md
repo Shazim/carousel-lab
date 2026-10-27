@@ -20,6 +20,7 @@ Voice: plain words, lowercase captions, no hype, no invented numbers.
 ```bash
 node render.js <post-slug>        # post.json -> exports/*.png + _contact.png
                                   #            + linkedin.pdf + threads.md
+                                  #            + NN-*.mp4 for animated pages (org-chart cover)
 node new-post.js <slug> <template> "Title"   # scaffold a post folder
 node gen-icons.js [names...]      # icon set via Gemini API (needs GEMINI_API_KEY
                                   # + quota/billing; source ~/.zshrc first)
@@ -182,7 +183,7 @@ full draft exists, and iterate on their feedback. They review on their phone.
    here), slack and botpress (slack.svg here is an empty dead file — don't use
    it; botpress/mindstudio/zapier-asterisk are hand-drawn inside templates).
 
-## Posts inventory (as of 2026-10-07)
+## Posts inventory (as of 2026-10-27)
 
 October carousels C1–C4 are final and scheduled (Instagram 8pm PKT, TikTok
 9pm PKT, LinkedIn document versions L6/L10/L13/L16). Status/scheduling lives in
@@ -194,15 +195,14 @@ October carousels C1–C4 are final and scheduled (Instagram 8pm PKT, TikTok
 | launch-checks | C2 · Wed 14 Oct | agent-recipes (cream, orange accent) | scheduled |
 | skills-once | C3 · Wed 21 Oct | level-series (painted, "Step" pills) | scheduled |
 | slack-studio | C4 · Wed 28 Oct | slack-case (cool white + Slack UI) | scheduled; client 9/16 is nameable |
+| claude-team | C5 candidate · date not set | org-chart (graph paper, animated MP4 cover) | ready for review; TEAM guide hosted at reply.orbiqon.com/files/claude-team, OpenReply campaign to create once posted |
 | expensive-employee | reel | none (video) | guide written; AUTOMATE delivery via openreply |
 | capy-team-meme | — | meme | ready, not scheduled |
 | claude-code-levels | — | level-series | draft; LEVELS guide not built |
 | founder-agents | — | agent-recipes | draft; AGENTS guide written, not published |
 | ai-tools, claude-prompts, founder-vitamins | — | icon-grid / editorial / editorial-grid | test dummies |
 
-Template rotation for the next carousel (C5): the last four used model-cards,
-agent-recipes, level-series, slack-case — pick something else (editorial,
-editorial-grid, icon-grid) or build template #9.
+Template rotation: C1–C5 use model-cards, agent-recipes, level-series, slack-case, org-chart. The carousel after claude-team must not use org-chart.
 
 Other folders made by a parallel session (not carousels):
 - `posts/l2-agent-limits/` — a single LinkedIn image card (card.html → png).
